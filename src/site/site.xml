@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="Accada">
+  <body>
+   
+   <menu name="Accada">
+      <item name="Home" href="../index.html"/>
+    </menu>
+   
+    <menu name="Tag Data Translation Project">
+      <item name="Overview" href="/index.html"/>
+      <item name="Status" href="/status.html"/>
+    </menu>
+    <!--
+     <menu name="Filtering &amp; Collection Project Modules">
+       <item name="Filtering &amp; Collection Middleware" href="/index.html"/>
+       <item name="ALE Proxy" href="/index.html"/>
+       <item name="ALE Test CLient" href="/index.html"/>
+     </menu>
+-->
+     
+        
+
+     <breadcrumbs>
+         <item href="../index.html" name="Accada" />
+         <item name="Tag Data Translation"/> <!-- href is derived from project.url -->
+  </breadcrumbs>
+  
+  </body>
+
+   
+
+
+</project>
