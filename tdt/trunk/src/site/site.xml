@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <project name="Accada">
+  <bannerLeft>
+      <name>Accada</name>
+      <src>images/banner_left.jpg</src>
+      <href>http://www.accada.org/</href>
+    </bannerLeft>
+    <bannerRight>
+      <src>images/banner_right.jpg</src>
+  </bannerRight>
+  
   <body>
+   
+    <links>
+         <item name="Accada" href="../index.html" />
+         <item name="Reader" href="../reader/index.html"/>
+         <item name="Filtering&amp;Collection" href="../filteringCollection/index.html"/>
+         <item name="EPCIS" href="../epcis/index.html"/>
+         <item name="Tag Data Translation" href="../tdt/index.html"/>
+    </links>
    
    <menu name="Accada">
       <item name="Home" href="../index.html"/>
@@ -10,7 +27,7 @@
       <item name="Overview" href="/index.html"/>
       <item name="Status" href="/status.html"/>
     </menu>
-    <!--
+    <!-- ADD OTHER MENU ITEMS HERE 
      <menu name="Filtering &amp; Collection Project Modules">
        <item name="Filtering &amp; Collection Middleware" href="/index.html"/>
        <item name="ALE Proxy" href="/index.html"/>
@@ -26,8 +43,14 @@
   </breadcrumbs>
   
   </body>
-
-   
+  <skin>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-classic-skin</artifactId>
+      <version>1.0</version>
+  </skin>
+  <poweredBy>
+         <logo img="images/logos/supportedByAutoid.png" name="Auto-ID" href="http://www.autoidlabs.org/" />
+  </poweredBy>
 
 
 </project>
