@@ -24,6 +24,7 @@
     <developerConnection>scm:svn:https://svn.accada.org/repos/tdt</developerConnection>
     <url></url>
   </scm>
+  <!--
   <distributionManagement>
     <repository>
       <id>accada-repository</id>
@@ -40,7 +41,7 @@
       <name>Accada website</name>
       <url>sftp://svn.accada.org/local/home/accadaweb/public_html/tdt</url>
     </site>
-  </distributionManagement>
+  </distributionManagement>-->
   <!--
   Define issue management and mailinglists as soon as available.
   <issueManagement>

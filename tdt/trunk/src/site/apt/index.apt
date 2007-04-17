@@ -10,25 +10,55 @@ Welcome to the Accada Tag Data Translation Project
 
 * Objective
 
-     The objective of the <<Tag Data Translation>> Project is to develop a library that implements the EPCglobal Tag Data Translation specification. 
+     An EPC identifier may be expressed in a number of representations or encodings, such as BINARY, tag-encoding URI, pure-identity URI, legacy formats
+     
+     The objective of the Tag Data Translation (TDT) is to provide flexible translation (encoding/decoding) between these different representations of an EPC. For example, TDT allows a binary string to be converted into a URI representation or vice versa.
+     The coding schemes specified in {{{http://www.epcglobalinc.org} EPCglobal Tag Data Standards v1.27}} are supported in v1.0 of Tag Data Translation.
 
+
+[images/TDTOverview.gif]
 
 * Status
 
-   This project is currently <<work in progress>> and there is <<no>> implementation available for download. We are planning to release a version as alpha software within the next few weeks.
+   There is an implementation available for {{{download.html} download}}. 
 
-
-
-* How can the Accada Tag Data Translation Project help you?
  
-  This project allows you to:
-
-     * Translate between different representations of the EPC
-     
-     []
-    
- 
+* Organization
   
+  
+  The TDT project consists of two modules:
+  
+  * the TDTEngine (library for performing conversion)
+  
+  * TDTFrontEnd (a test client that uses TDTEngine to perform conversions)
+  
+  TDTEngine makes use of the XML schema and instance files defined in EPCglobal Tag Data Translation v1.0
+  
+  
+  
+* Usage Scenarios
+  
+  Possible usage scenarios include the following:
+  
+  * Convert a binary EPC string read from a tag into a tag-encoding URI for use with ALE
+  
+  []  
+  * Convert a binary EPC string read from a tag into a pure-identity URI for use with EPCIS
+  
+  []
+  * Convert a binary EPC string into a legacy format (e.g. GTIN + serial number) for use with legacy applications
+  
+  []
+  * Convert an EPC into a hostname, to be looked up in order to perform an ONS query.  (N.B.  ONS currently only supports SGTIN)
+  
+  []
+  * Convert an EPC into a binary format, for writing an EPC onto a tag
+  
+  []
+  
+  
+  
+
  
      
        
