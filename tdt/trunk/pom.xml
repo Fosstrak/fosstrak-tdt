@@ -1,13 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 <!-- checkout the epcis pom for the options we are using in the other projects-->
-  <!-- POM basics  -->
+
+
+  <!-- =========================================================== -->
+  <!-- Basics                                                      -->
+  <!-- =========================================================== -->
+
   <groupId>org.accada.tdt</groupId>
   <artifactId>tdt</artifactId>
   <version>0.2.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <modelVersion>4.0.0</modelVersion>
 
-  <!-- Dependencies -->
+
+  <!-- =========================================================== -->
+  <!-- Dependencies                                                -->
+  <!-- =========================================================== -->
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -17,14 +26,17 @@
     </dependency>
   </dependencies>
 
-  <!-- Infrastructure -->
+
+  <!-- =========================================================== -->
+  <!-- Infrastructure                                              -->
+  <!-- =========================================================== -->
+
   <scm>
     <!-- keep empty tags here to avoid release:prepare crashes -->
     <connection></connection>
     <developerConnection>scm:svn:https://svn.accada.org/repos/tdt</developerConnection>
     <url></url>
   </scm>
-  <!--
   <distributionManagement>
     <repository>
       <id>accada-repository</id>
@@ -41,7 +53,7 @@
       <name>Accada website</name>
       <url>sftp://svn.accada.org/local/home/accadaweb/public_html/tdt</url>
     </site>
-  </distributionManagement>-->
+  </distributionManagement>
   <!--
   Define issue management and mailinglists as soon as available.
   <issueManagement>
@@ -66,7 +78,11 @@
   </mailingLists>
   -->
 
-  <!-- Additional project information -->
+
+  <!-- =========================================================== -->
+  <!-- Project Information                                         -->
+  <!-- =========================================================== -->
+
   <name>tdt</name>
   <url>http://www.accada.org/tdt</url>
   <licenses>
@@ -75,9 +91,6 @@
       <url>http://www.gnu.org/licenses/lgpl.txt</url>
     </license>
   </licenses>
-  <developers>
-  </developers>
-  <contributors>
-  </contributors>
+
 
 </project>
