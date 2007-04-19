@@ -1,0 +1,29 @@
+<assembly>
+  <id>src</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <includes>
+        <include>README*</include>
+        <include>LICENSE*</include>
+        <include>NOTICE*</include>
+        <include>pom.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>src/main/java</directory>
+      <outputDirectory>src</outputDirectory>
+    </fileSet>
+    <fileSet>
+              <directory>src/main/resources/auxiliary</directory>
+              <outputDirectory>auxiliary</outputDirectory>
+        </fileSet>
+        <fileSet>
+                  <directory>src/main/resources/schemes</directory>
+                  <outputDirectory>schemes</outputDirectory>
+    </fileSet>
+  </fileSets>
+</assembly>
