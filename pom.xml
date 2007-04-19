@@ -24,6 +24,21 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>castor</groupId>
+      <artifactId>castor</artifactId>
+      <version>0.9.9.1</version>
+    </dependency>
+      <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.0.4</version>
+    </dependency>
+    <dependency>
+      <groupId>xerces</groupId>
+      <artifactId>xerces</artifactId>
+      <version>2.4.0</version>
+     </dependency>
   </dependencies>
 
 
@@ -54,8 +69,6 @@
       <url>sftp://www.accada.org/local/home/accadaweb/public_html/tdt</url>
     </site>
   </distributionManagement>
-  <!--
-  Define issue management and mailinglists as soon as available.
   <issueManagement>
     <system>Sourceforge</system>
     <url>http://sourceforge.net/tracker/?group_id=171114</url>
@@ -63,20 +76,19 @@
   <mailingLists>
     <mailingList>
       <name>Filtering and Collection user mailing list</name>
-      <subscribe>https://lists.sourceforge.net/lists/listinfo/accada-ale-user</subscribe>
-      <unsubscribe>https://lists.sourceforge.net/lists/listinfo/accada-ale-user</unsubscribe>
-      <post>accada-ale-user@lists.sourceforge.net</post>
-      <archive>http://sourceforge.net/mailarchive/forum.php?forum=accada-ale-user</archive>
+      <subscribe>https://lists.sourceforge.net/lists/listinfo/accada-tdt-user</subscribe>
+      <unsubscribe>https://lists.sourceforge.net/lists/listinfo/accada-tdt-user</unsubscribe>
+      <post>accada-tdt-user@lists.sourceforge.net</post>
+      <archive>http://sourceforge.net/mailarchive/forum.php?forum=accada-tdt-user</archive>
     </mailingList>
     <mailingList>
       <name>Filtering and Collection developer mailing list</name>
-      <subscribe>https://lists.sourceforge.net/lists/listinfo/accada-ale-developer</subscribe>
-      <unsubscribe>https://lists.sourceforge.net/lists/listinfo/accada-ale-developer</unsubscribe>
-      <post>accada-ale-developer@lists.sourceforge.net</post>
-      <archive>http://sourceforge.net/mailarchive/forum.php?forum=accada-ale-developer</archive>
+      <subscribe>https://lists.sourceforge.net/lists/listinfo/accada-tdt-developer</subscribe>
+      <unsubscribe>https://lists.sourceforge.net/lists/listinfo/accada-tdt-developer</unsubscribe>
+      <post>accada-tdt-developer@lists.sourceforge.net</post>
+      <archive>http://sourceforge.net/mailarchive/forum.php?forum=accada-tdt-developer</archive>
     </mailingList>
   </mailingLists>
-  -->
 
 
   <!-- =========================================================== -->
@@ -91,6 +103,46 @@
       <url>http://www.gnu.org/licenses/lgpl.txt</url>
     </license>
   </licenses>
+  
+  <!-- =========================================================== -->
+  <!-- Plugins                                                     -->
+  <!-- =========================================================== -->
+
+        <build>
+           <plugins>
+              <plugin>
+	              <artifactId>maven-compiler-plugin</artifactId>
+	              <configuration>
+	                <source>1.5</source>
+	                <target>1.5</target>
+	              </configuration>
+              </plugin>
+              <plugin>
+                 <groupId>org.codehaus.mojo</groupId>
+                 <artifactId>castor-maven-plugin</artifactId>
+                 <version>1.0</version>
+		 <executions>
+		     <execution>
+		       	 <goals>
+		             <goal>generate</goal>
+		       	 </goals>
+		      </execution>
+   		 </executions>
+   		 
+                 <configuration>
+                     <schemas>
+                 	<schema>src/main/castor/ManagerTranslation.xsd</schema>
+                 	<schema>src/main/castor/EpcTagDataTranslation.xsd</schema>
+                     </schemas>
+                     <packaging>org.accada.tdt</packaging>
+                 </configuration>
+
+		                  	
+		                  	
+              </plugin>
+           </plugins>
+        </build>
+
 
 
 </project>
