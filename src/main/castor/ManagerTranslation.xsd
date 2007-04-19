@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:epcglobal:tdt:xsd:1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tdt="urn:epcglobal:tdt:xsd:1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0">
+
+<xsd:complexType name="GEPC64Entry">
+<xsd:attribute name="index" type="xsd:integer"/>
+<xsd:attribute name="companyPrefix" type="xsd:string"/>
+</xsd:complexType>
+
+<xsd:complexType name="GEPC64">
+<xsd:sequence>
+<xsd:element name="entry" type="GEPC64Entry"  minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+<xsd:attribute name="date" type="xsd:dateTime" use="required"/>
+</xsd:complexType>
+
+<xsd:element name="GEPC64Table" type="GEPC64"/>
+</xsd:schema>
