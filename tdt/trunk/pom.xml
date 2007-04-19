@@ -41,6 +41,32 @@
      </dependency>
   </dependencies>
 
+    <!-- =========================================================== -->
+    <!-- Repositories                                                -->
+    <!-- =========================================================== -->
+  
+    <repositories>
+      <repository>
+        <id>java.net</id>
+        <url>https://maven-repository.dev.java.net/repository</url>
+        <layout>legacy</layout>
+      </repository>
+      <repository>
+        <releases>
+          <enabled>true</enabled>
+          <updatePolicy>daily</updatePolicy>
+          <checksumPolicy>warn</checksumPolicy>
+        </releases>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+        <id>accada-repository</id>
+        <name>Accada repository</name>
+        <url>http://maven-repository.accada.org/releases</url>
+        <layout>default</layout>
+      </repository>
+  </repositories>
+
 
   <!-- =========================================================== -->
   <!-- Infrastructure                                              -->
@@ -75,14 +101,14 @@
   </issueManagement>
   <mailingLists>
     <mailingList>
-      <name>Filtering and Collection user mailing list</name>
+      <name>Tag Data Translation user mailing list</name>
       <subscribe>https://lists.sourceforge.net/lists/listinfo/accada-tdt-user</subscribe>
       <unsubscribe>https://lists.sourceforge.net/lists/listinfo/accada-tdt-user</unsubscribe>
       <post>accada-tdt-user@lists.sourceforge.net</post>
       <archive>http://sourceforge.net/mailarchive/forum.php?forum=accada-tdt-user</archive>
     </mailingList>
     <mailingList>
-      <name>Filtering and Collection developer mailing list</name>
+      <name>Tag Data Translation developer mailing list</name>
       <subscribe>https://lists.sourceforge.net/lists/listinfo/accada-tdt-developer</subscribe>
       <unsubscribe>https://lists.sourceforge.net/lists/listinfo/accada-tdt-developer</unsubscribe>
       <post>accada-tdt-developer@lists.sourceforge.net</post>
@@ -169,9 +195,92 @@
 	                   </goals>
 	                 </execution>
 	               </executions>
-       </plugin>
+       		</plugin>
+       		<plugin>
+		          <groupId>org.apache.maven.plugins</groupId>
+		          <artifactId>maven-site-plugin</artifactId>
+		          <configuration>
+		            <locales>en</locales>
+		            <publishDate position="left" format="yyyy-MM-dd hh:mm:ss"/>
+		          </configuration>
+		        </plugin>
+		        <plugin>
+		          <groupId>org.apache.maven.plugins</groupId>
+		          <artifactId>maven-surefire-plugin</artifactId>
+		          <!--
+		            By default, the surefire plugin automatically includes all test classes
+		            with following wildcard patterns:
+		               **/Test*.java
+		               **/*Test.java
+		               **/*TestCase.java
+		           -->
+		          <configuration>
+		            <testFailureIgnore>true</testFailureIgnore>
+		          </configuration>
+        		</plugin>
            </plugins>
         </build>
+
+  <!-- =========================================================== -->
+  <!-- Reporting                                                   -->
+  <!-- =========================================================== -->
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <maxmemory>1024</maxmemory>
+          <aggregate>true</aggregate>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <configuration>
+          <aggregate>true</aggregate>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>2.1</version>
+        <configuration>
+          <linkXref>true</linkXref>
+          <sourceEncoding>utf-8</sourceEncoding>
+          <minimumTokens>100</minimumTokens>
+          <targetJdk>1.5</targetJdk>
+          <excludes>
+            <exclude>**/Test*.java</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+      <!--
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <configuration>
+          <threshold>Low</threshold>
+          <effort>Default</effort>
+        </configuration>
+      </plugin>
+      -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>javancss-maven-plugin</artifactId>
+        <version>2.0-beta-2</version>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>taglist-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
 
 
 
