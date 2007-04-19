@@ -8,7 +8,7 @@
 
   <groupId>org.accada.tdt</groupId>
   <artifactId>tdt</artifactId>
-  <version>0.2.0-SNAPSHOT</version>
+  <version>0.3.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <modelVersion>4.0.0</modelVersion>
 
@@ -128,18 +128,48 @@
 		       	 </goals>
 		      </execution>
    		 </executions>
-   		 
                  <configuration>
                      <schemas>
                  	<schema>src/main/castor/ManagerTranslation.xsd</schema>
                  	<schema>src/main/castor/EpcTagDataTranslation.xsd</schema>
                      </schemas>
                      <packaging>org.accada.tdt</packaging>
-                 </configuration>
-
-		                  	
-		                  	
+                 </configuration> 	
               </plugin>
+              <plugin>
+	              <groupId>org.apache.maven.plugins</groupId>
+	               <artifactId>maven-jar-plugin</artifactId>  
+	               <configuration>
+	                      <archive>
+	                      <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+	                      <!-- TODO once there is a way to adjust classpath to a /lib dir -->
+	                       <!--  
+	                        <manifest>
+	                          <mainClass>org.accada.tdt.TDTFrontEnd</mainClass>
+	                          <addClasspath>true</addClasspath>
+	                           
+	                        </manifest>-->
+	                </archive>
+	                </configuration>
+	             </plugin>
+	             <plugin>
+	      	     <artifactId>maven-assembly-plugin</artifactId>
+	      	     <configuration>
+	      	       <descriptors>
+	      	         <descriptor>src/main/assembly/src.xml</descriptor>
+	      	         <descriptor>src/main/assembly/bin-with-dependencies.xml</descriptor>
+	                 </descriptors>
+	               </configuration>
+	               <executions>
+	                 <execution>
+	                   <id>make-assembly</id>
+	                   <phase>package</phase>
+	                   <goals>
+	                     <goal>single</goal>
+	                   </goals>
+	                 </execution>
+	               </executions>
+       </plugin>
            </plugins>
         </build>
 
