@@ -7,15 +7,14 @@
 
 Download 
 
-* TDTEngine 
+* Tag Data Translation (TDT)
 
 *---------------------+------+------+
  Package | Binaries | Source
 *---------------------+------+------+
- Reader 0.2.0 (zip) with dependencies | {{{downloads/reader-0.2.0-bin-with-dependencies.zip }reader-0.2.0-bin-with-dependencies.zip}} | {{{downloads/reader-0.2.0-src-with-dependencies.zip }reader-0.2.0-src-with-dependencies.zip}}
+ TDT 0.2.0 (zip) | {{{http://maven-repository.accada.org/releases/org/accada/tdt/0.3.0/tdt-0.3.0-bin-with-dependencies.zip }tdt-0.3.0-bin-with-dependencies.zip}} | {{{http://maven-repository.accada.org/releases/org/accada/tdt/0.3.0/tdt-0.3.0-src.zip }tdt-0.3.0-src.zip}}
 *---------------------+------+------+
- Reader 0.2.0 (zip) without dependencies | {{{downloads/reader-0.2.0-bin.zip }reader-0.2.0-bin.zip}} | {{{downloads/reader-0.2.0-src.zip }reader-0.2.0-src.zip}}
-*---------------------+------+------+
+ 
 
      
 
