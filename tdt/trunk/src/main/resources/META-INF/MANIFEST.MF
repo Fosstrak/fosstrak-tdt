@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Archiver-Version: Plexus Archiver
-Created-By: Apache Maven
-Built-By: floerkem
-Build-Jdk: 1.5.0_07
-Main-Class: org.accada.tdt.TDTFrontEnd
-Class-Path: lib/commons-logging-1.0.4.jar lib/castor-0.9.9.1.jar lib/xercesImpl-2.
- 4.0.jar . lib
