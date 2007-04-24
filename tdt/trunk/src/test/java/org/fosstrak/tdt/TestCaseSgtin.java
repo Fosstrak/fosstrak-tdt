@@ -26,7 +26,7 @@ import org.accada.tdt.TDTEngine;
 import org.accada.tdt.types.*;
 import junit.framework.*;
 
-public class TestCaseSgtin extends TestCase 
+public class TestCaseSgtin extends TestCase
 {
 
     private TDTEngine engine = null;
@@ -38,10 +38,10 @@ public class TestCaseSgtin extends TestCase
 	if (engine == null) {
 	    try {
 		String s = System.getenv("TDT_PATH");
-		if (s == null) s = ".";
+		if (s == null) s = "target/classes";
 		engine = new TDTEngine(s);
 	    }
-	    catch (Exception e) { 
+	    catch (Exception e) {
 		e.printStackTrace(System.err);
 		//System.exit(1);
 	    }
@@ -106,14 +106,14 @@ public class TestCaseSgtin extends TestCase
 
     }
 
-    public void testPage26() { 
+    public void testPage26() {
 	// table 3 on page 26 has some legacy codes. Check that they
 	// convert back and forth to binary.
 
 	params.put("taglength", "96");
 	params.put("filter", "3");
 	params.put("companyprefixlength", "7");
-	String legacy [] = 
+	String legacy [] =
 	    {"gtin=00037000302414;serial=10419703",
 	     "sscc=000370003024147856",
 	     "gln=0003700030247;serial=1041970",
@@ -123,12 +123,12 @@ public class TestCaseSgtin extends TestCase
 	     "cageordodaac=AB123;serial=3789156"
 	    };
 
-	for (String s : legacy) { 
-	    String s2 = engine.convert(s, 
+	for (String s : legacy) {
+	    String s2 = engine.convert(s,
 				       params,
 				       LevelTypeList.BINARY);
 	    System.out.println("  " + s + " -> " + s2);
-	    String s3 = engine.convert(s2, 
+	    String s3 = engine.convert(s2,
 				       params,
 				       LevelTypeList.LEGACY);
 	    System.out.println("    -> " + s3);
@@ -137,7 +137,7 @@ public class TestCaseSgtin extends TestCase
 
     }
 
-    public void testUsDod96() { 
+    public void testUsDod96() {
 	params.put("taglength", "96");
 	params.put("filter", "0");
 	String orig = "cageordodaac=2S194;serial=12345678901";
@@ -148,9 +148,9 @@ public class TestCaseSgtin extends TestCase
 	String expect = "001011110000001000000011001001010011001100010011100100110100001011011111110111000001110000110101";
 	//                  2   f   0   2   0   3   2   5   3   3   1   3   9   3   4   2   d   f   d   c   1   c   3   5
 	Assert.assertEquals(expect, s);
-    }	
-	
-    public void testUsDod64() { 
+    }
+
+    public void testUsDod64() {
 	params.put("taglength", "64");
 	params.put("filter", "1");
 	String orig = "cageordodaac=1D381;serial=16522293";
@@ -161,5 +161,5 @@ public class TestCaseSgtin extends TestCase
 	String expect = "1100111001110001000100110011111000110001111111000001110000110101";
 	//                  c   e   7   1   1   3   3   e   3   1   f   c   1   c   3   5
 	Assert.assertEquals(expect, s);
-    }	
+    }
 }
