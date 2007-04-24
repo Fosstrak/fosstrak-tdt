@@ -168,13 +168,11 @@
         <artifactId>maven-jar-plugin</artifactId>  
         <configuration>
           <archive>
-            <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
-            <!-- TODO once there is a way to adjust classpath to a /lib dir -->
-            <!--  
             <manifest>
               <mainClass>org.accada.tdt.TDTFrontEnd</mainClass>
               <addClasspath>true</addClasspath>
-            </manifest>-->
+              <classpathPrefix>./lib</classpathPrefix>
+            </manifest>
           </archive>
         </configuration>
       </plugin>
