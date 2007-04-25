@@ -7,7 +7,7 @@
 
   <groupId>org.accada.tdt</groupId>
   <artifactId>tdt</artifactId>
-  <version>0.3.0</version>
+  <version>0.3.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <modelVersion>4.0.0</modelVersion>
 
@@ -74,9 +74,9 @@
 
   <scm>
     <!-- keep empty tags here to avoid release:prepare crashes -->
-    <connection>/tags/tdt-0.3.0</connection>
-    <developerConnection>scm:svn:https://svn.accada.org/repos/tdt/tags/tdt-0.3.0</developerConnection>
-    <url>/tags/tdt-0.3.0</url>
+    <connection></connection>
+    <developerConnection>scm:svn:https://svn.accada.org/repos/tdt</developerConnection>
+    <url></url>
   </scm>
   <distributionManagement>
     <repository>
