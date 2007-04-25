@@ -2,19 +2,28 @@
 <project name="Accada">
   <bannerLeft>
       <name>Accada</name>
-      <src>images/banner_left.jpg</src>
+      <src>images/banner2_left.jpg</src>
       <href>http://www.accada.org/</href>
     </bannerLeft>
     <bannerRight>
-      <src>images/banner_right.jpg</src>
+      <src>images/banner2_middle.jpg</src>
   </bannerRight>
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-stylus-skin</artifactId>
+    <version>1.0</version>
+  </skin>
+  <poweredBy>
+    <logo img="images/logos/supportedByAutoid4.png" name="Auto-ID" href="http://www.autoidlabs.org/" />
+  </poweredBy>
+  <publishDate position="left" format="MMM d, yyyy HH:mm:ss z"/>
   
   <body>
    
     <links>
          <item name="Accada" href="../index.html" />
          <item name="Reader" href="../reader/index.html"/>
-         <item name="Filtering&amp;Collection" href="../filteringCollection/index.html"/>
+         <item name="Filtering and Collection" href="../fc/index.html"/>
          <item name="EPCIS" href="../epcis/index.html"/>
          <item name="Tag Data Translation" href="../tdt/index.html"/>
     </links>
@@ -44,14 +53,5 @@
   </breadcrumbs>
   
   </body>
-  <skin>
-      <groupId>org.apache.maven.skins</groupId>
-      <artifactId>maven-stylus-skin</artifactId>
-      <version>1.0</version>
-  </skin>
-  <poweredBy>
-         <logo img="images/logos/supportedByAutoid.png" name="Auto-ID" href="http://www.autoidlabs.org/" />
-  </poweredBy>
-
 
 </project>
