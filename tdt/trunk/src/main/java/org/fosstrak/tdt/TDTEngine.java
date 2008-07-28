@@ -1,24 +1,24 @@
 /*
  * Copyright (C) 2007 University of Cambridge
  *
- * This file is part of Accada (www.accada.org).
+ * This file is part of Fosstrak (www.fosstrak.org).
  *
- * Accada is free software; you can redistribute it and/or
+ * Fosstrak is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License version 2.1, as published by the Free Software Foundation.
  *
- * Accada is distributed in the hope that it will be useful,
+ * Fosstrak is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public
- * License along with Accada; if not, write to the Free
+ * License along with Fosstrak; if not, write to the Free
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA
  */
 
-package org.accada.tdt;
+package org.fosstrak.tdt;
 
 import org.exolab.castor.mapping.Mapping;
 import org.exolab.castor.mapping.MappingException;
@@ -32,15 +32,15 @@ import javax.xml.xpath.*;
 import javax.xml.parsers.*;
 import java.math.*;
 
-import org.accada.tdt.Entry;
-import org.accada.tdt.EpcTagDataTranslation;
-import org.accada.tdt.Field;
-import org.accada.tdt.GEPC64Table;
-import org.accada.tdt.Level;
-import org.accada.tdt.Option;
-import org.accada.tdt.Rule;
-import org.accada.tdt.Scheme;
-import org.accada.tdt.types.*;
+import org.fosstrak.tdt.Entry;
+import org.fosstrak.tdt.EpcTagDataTranslation;
+import org.fosstrak.tdt.Field;
+import org.fosstrak.tdt.GEPC64Table;
+import org.fosstrak.tdt.Level;
+import org.fosstrak.tdt.Option;
+import org.fosstrak.tdt.Rule;
+import org.fosstrak.tdt.Scheme;
+import org.fosstrak.tdt.types.*;
 
 import org.xml.sax.SAXException;  
 import org.xml.sax.SAXParseException;  
