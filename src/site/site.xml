@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project name="Accada">
+<project name="Fosstrak">
   <bannerLeft>
-      <name>Accada</name>
+      <name>Fosstrak</name>
       <src>images/banner2_left.jpg</src>
-      <href>http://www.accada.org/</href>
+      <href>http://www.fosstrak.org/</href>
     </bannerLeft>
     <bannerRight>
       <src>images/banner2_middle.jpg</src>
@@ -21,14 +21,14 @@
   <body>
    
     <links>
-         <item name="Accada" href="../index.html" />
+         <item name="Fosstrak" href="../index.html" />
          <item name="Reader" href="../reader/index.html"/>
          <item name="Filtering and Collection" href="../fc/index.html"/>
          <item name="EPCIS" href="../epcis/index.html"/>
          <item name="Tag Data Translation" href="../tdt/index.html"/>
     </links>
    
-   <menu name="Accada">
+   <menu name="Fosstrak">
       <item name="Home" href="../index.html"/>
     </menu>
    
@@ -48,7 +48,7 @@
         
 
      <breadcrumbs>
-         <item href="../index.html" name="Accada" />
+         <item href="../index.html" name="Fosstrak" />
          <item name="Tag Data Translation"/> <!-- href is derived from project.url -->
   </breadcrumbs>
   

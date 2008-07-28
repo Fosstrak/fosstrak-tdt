@@ -5,7 +5,7 @@
   <!-- Basics                                                      -->
   <!-- =========================================================== -->
 
-  <groupId>org.accada.tdt</groupId>
+  <groupId>org.fosstrak.tdt</groupId>
   <artifactId>tdt</artifactId>
   <version>0.3.1-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -60,9 +60,9 @@
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
-      <id>accada-repository</id>
-      <name>Accada repository</name>
-      <url>http://maven-repository.accada.org/releases</url>
+      <id>fosstrak-repository</id>
+      <name>Fosstrak repository</name>
+      <url>http://maven-repository.fosstrak.org/releases</url>
       <layout>default</layout>
     </repository>
   </repositories>
@@ -75,24 +75,24 @@
   <scm>
     <!-- keep empty tags here to avoid release:prepare crashes -->
     <connection></connection>
-    <developerConnection>scm:svn:https://svn.accada.org/repos/tdt</developerConnection>
+    <developerConnection>scm:svn:https://svn.fosstrak.org/repos/tdt</developerConnection>
     <url></url>
   </scm>
   <distributionManagement>
     <repository>
-      <id>accada-repository</id>
-      <name>Accada repository</name>
-      <url>sftp://maven-repository.accada.org/local/home/accadarep/public_html/releases</url>
+      <id>fosstrak-repository</id>
+      <name>Fosstrak repository</name>
+      <url>sftp://maven-repository.fosstrak.org/local/home/fosstrakrep/public_html/releases</url>
     </repository>
     <snapshotRepository>
-      <id>accada-repository</id>
-      <name>Accada repository</name>
-      <url>sftp://maven-repository.accada.org/local/home/accadarep/public_html/snapshots</url>
+      <id>fosstrak-repository</id>
+      <name>Fosstrak repository</name>
+      <url>sftp://maven-repository.fosstrak.org/local/home/fosstrakrep/public_html/snapshots</url>
     </snapshotRepository>
     <site>
-      <id>accada-website</id>
-      <name>Accada website</name>
-      <url>sftp://www.accada.org/local/home/accadaweb/public_html/tdt</url>
+      <id>fosstrak-website</id>
+      <name>Fosstrak website</name>
+      <url>sftp://www.fosstrak.org/local/home/fosstrakweb/public_html/tdt</url>
     </site>
   </distributionManagement>
   <issueManagement>
@@ -102,17 +102,17 @@
   <mailingLists>
     <mailingList>
       <name>Tag Data Translation user mailing list</name>
-      <subscribe>https://lists.sourceforge.net/lists/listinfo/accada-tdt-user</subscribe>
-      <unsubscribe>https://lists.sourceforge.net/lists/listinfo/accada-tdt-user</unsubscribe>
-      <post>accada-tdt-user@lists.sourceforge.net</post>
-      <archive>http://sourceforge.net/mailarchive/forum.php?forum=accada-tdt-user</archive>
+      <subscribe>https://lists.sourceforge.net/lists/listinfo/fosstrak-tdt-user</subscribe>
+      <unsubscribe>https://lists.sourceforge.net/lists/listinfo/fosstrak-tdt-user</unsubscribe>
+      <post>fosstrak-tdt-user@lists.sourceforge.net</post>
+      <archive>http://sourceforge.net/mailarchive/forum.php?forum=fosstrak-tdt-user</archive>
     </mailingList>
     <mailingList>
       <name>Tag Data Translation developer mailing list</name>
-      <subscribe>https://lists.sourceforge.net/lists/listinfo/accada-tdt-developer</subscribe>
-      <unsubscribe>https://lists.sourceforge.net/lists/listinfo/accada-tdt-developer</unsubscribe>
-      <post>accada-tdt-developer@lists.sourceforge.net</post>
-      <archive>http://sourceforge.net/mailarchive/forum.php?forum=accada-tdt-developer</archive>
+      <subscribe>https://lists.sourceforge.net/lists/listinfo/fosstrak-tdt-developer</subscribe>
+      <unsubscribe>https://lists.sourceforge.net/lists/listinfo/fosstrak-tdt-developer</unsubscribe>
+      <post>fosstrak-tdt-developer@lists.sourceforge.net</post>
+      <archive>http://sourceforge.net/mailarchive/forum.php?forum=fosstrak-tdt-developer</archive>
     </mailingList>
   </mailingLists>
 
@@ -122,7 +122,7 @@
   <!-- =========================================================== -->
 
   <name>tdt</name>
-  <url>http://www.accada.org/tdt</url>
+  <url>http://www.fosstrak.org/tdt</url>
   <licenses>
     <license>
       <name>GNU Lesser General Public License (LGPL)</name>
@@ -160,7 +160,7 @@
             <schema>src/main/castor/ManagerTranslation.xsd</schema>
             <schema>src/main/castor/EpcTagDataTranslation.xsd</schema>
           </schemas>
-          <packaging>org.accada.tdt</packaging>
+          <packaging>org.fosstrak.tdt</packaging>
         </configuration> 	
       </plugin>
       <plugin>
@@ -169,7 +169,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>org.accada.tdt.TDTFrontEnd</mainClass>
+              <mainClass>org.fosstrak.tdt.TDTFrontEnd</mainClass>
               <addClasspath>true</addClasspath>
               <classpathPrefix>./lib</classpathPrefix>
             </manifest>
