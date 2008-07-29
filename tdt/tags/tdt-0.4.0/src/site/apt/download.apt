@@ -1,0 +1,52 @@
+       ------
+                                    Download
+                                    ------
+                                    ------
+
+
+
+Download 
+
+* Tag Data Translation (TDT)
+
+*---------------------+------+------+
+ Package | Binaries | Source
+*---------------------+------+------+
+ TDT 0.4.0 (zip) | {{{http://maven-repository.fosstrak.org/releases/org/fosstrak/tdt/tdt/0.4.0/tdt-0.4.0-bin-with-dependencies.zip}tdt-0.4.0-bin-with-dependencies.zip}} | {{{http://maven-repository.fosstrak.org/releases/org/fosstrak/tdt/tdt/0.4.0/tdt-0.4.0-src.zip}tdt-0.4.0-src.zip}}
+ TDT 0.4.0 (tar.gz) | {{{http://maven-repository.fosstrak.org/releases/org/fosstrak/tdt/tdt/0.4.0/tdt-0.4.0-bin-with-dependencies.tar.gz}tdt-0.4.0-bin-with-dependencies.tar.gz}} | {{{http://maven-repository.fosstrak.org/releases/org/fosstrak/tdt/tdt/0.4.0/tdt-0.4.0-src.tar.gz}tdt-0.4.0-src.tar.gz}}
+*---------------------+------+------+
+ 
+
+     
+
+* System Requirements
+
+*---------------------+------+
+ Java Virtual Machine | JDK 1.5 
+*---------------------+------+
+ Operating System | No minimum requirement. Tested on Windows XP. 
+*---------------------+------+
+
+    	
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+ 
+ 
+ 
