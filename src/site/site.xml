@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <project name="Fosstrak">
   <bannerLeft>
-      <name>Fosstrak</name>
-      <src>images/banner2_left.jpg</src>
-      <href>http://www.fosstrak.org/</href>
-    </bannerLeft>
-    <bannerRight>
-      <src>images/banner2_middle.jpg</src>
-  </bannerRight>
+    <name>Fosstrak</name>
+    <src>images/banner_left.gif</src>
+    <href>http://www.fosstrak.org/</href>
+  </bannerLeft>
   <skin>
     <groupId>org.apache.maven.skins</groupId>
     <artifactId>maven-stylus-skin</artifactId>
