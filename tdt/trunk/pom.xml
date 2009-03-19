@@ -24,9 +24,9 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>castor</groupId>
-      <artifactId>castor</artifactId>
-      <version>0.9.9.1</version>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>2.1</version>
     </dependency>
       <dependency>
       <groupId>commons-logging</groupId>
@@ -65,8 +65,16 @@
       <url>http://maven-repository.fosstrak.org/releases</url>
       <layout>default</layout>
     </repository>
-  </repositories>
+	
 
+  </repositories>
+<pluginRepositories>
+     <pluginRepository>
+      <id>java.net</id>
+      <url>https://maven-repository.dev.java.net/repository</url>
+      <layout>legacy</layout>
+    </pluginRepository>
+  </pluginRepositories>
 
   <!-- =========================================================== -->
   <!-- Infrastructure                                              -->
@@ -144,7 +152,9 @@
           <target>1.5</target>
         </configuration>
       </plugin>
-      <plugin>
+	  
+      <!--
+	  <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>castor-maven-plugin</artifactId>
         <version>1.0</version>
@@ -163,6 +173,7 @@
           <packaging>org.fosstrak.tdt</packaging>
         </configuration> 	
       </plugin>
+	  -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>  
@@ -175,6 +186,36 @@
             </manifest>
           </archive>
         </configuration>
+      </plugin>
+	  
+	  <plugin>
+            <groupId>com.sun.tools.xjc.maven2</groupId>
+            <artifactId>maven-jaxb-plugin</artifactId>
+			<version>1.0</version>
+			<executions>
+            <execution>
+            <goals>
+            <goal>generate</goal>
+            </goals>
+            </execution>
+            </executions>
+			<configuration>
+			<!--
+				<includeSchemas>
+					<includeSchema>src/main/castor/ManagerTranslation.xsd</includeSchema>
+					<includeSchema>src/main/castor/EpcTagDataTranslation.xsd</includeSchema>
+				</includeSchemas>
+             -->      
+				<generatePackage>epcglobalinc.generated</generatePackage>
+			</configuration> 
+      </plugin>
+	  
+      <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+            <source>1.6</source>
+            </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
