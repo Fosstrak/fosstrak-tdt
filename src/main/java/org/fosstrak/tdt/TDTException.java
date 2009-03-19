@@ -20,14 +20,21 @@
 
 package org.fosstrak.tdt;
 
-/** A TDTException is thrown at runtime when the user supplies invalid or incomplete input. */
+/**
+ * A TDTException is thrown at runtime when the user supplies invalid or
+ * incomplete input.
+ * 
+ * @author Mark Harrison [University of Cambridge] - mark.harrison@cantab.net
+ * @author James Brusey
+ * 
+ */
 
 public class TDTException extends RuntimeException {
 	public TDTException() {
 		super();
 	}
-	
-	public TDTException (String msg) {
+
+	public TDTException(String msg) {
 		super(msg);
 	}
 }
