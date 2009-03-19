@@ -20,11 +20,13 @@
 
 package org.fosstrak.tdt;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.fosstrak.tdt.TDTEngine;
-import org.fosstrak.tdt.types.*;
-import junit.framework.*;
+import junit.framework.Assert;
+import junit.framework.TestCase;
+
+import epcglobalinc.generated.LevelTypeList;
 
 public class TestCaseSgtin extends TestCase
 {
@@ -39,7 +41,7 @@ public class TestCaseSgtin extends TestCase
 	    try {
 		String s = System.getenv("TDT_PATH");
 		if (s == null) s = "target/classes";
-		engine = new TDTEngine(s);
+		engine = new TDTEngine();
 	    }
 	    catch (Exception e) {
 		e.printStackTrace(System.err);
@@ -47,7 +49,7 @@ public class TestCaseSgtin extends TestCase
 	    }
 	}
     }
-
+    
     public void testPage13Staged() {
 	// this test follows fig 4 on page 13 of TDT Spec
 	// jpb trying this version using a staged approach, only going one level at a time.
