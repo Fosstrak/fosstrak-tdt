@@ -152,28 +152,6 @@
           <target>1.5</target>
         </configuration>
       </plugin>
-	  
-      <!--
-	  <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>castor-maven-plugin</artifactId>
-        <version>1.0</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <schemas>
-            <schema>src/main/castor/ManagerTranslation.xsd</schema>
-            <schema>src/main/castor/EpcTagDataTranslation.xsd</schema>
-          </schemas>
-          <packaging>org.fosstrak.tdt</packaging>
-        </configuration> 	
-      </plugin>
-	  -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>  
@@ -199,15 +177,9 @@
             </goals>
             </execution>
             </executions>
-			<configuration>
-			<!--
-				<includeSchemas>
-					<includeSchema>src/main/castor/ManagerTranslation.xsd</includeSchema>
-					<includeSchema>src/main/castor/EpcTagDataTranslation.xsd</includeSchema>
-				</includeSchemas>
-             -->      
-				<generatePackage>epcglobalinc.generated</generatePackage>
-			</configuration> 
+	    <configuration>
+		<generatePackage>org.epcglobalinc.tdt</generatePackage>
+	    </configuration> 
       </plugin>
 	  
       <plugin>
