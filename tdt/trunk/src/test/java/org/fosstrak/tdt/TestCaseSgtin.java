@@ -26,7 +26,7 @@ import java.util.Map;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
-import epcglobalinc.generated.LevelTypeList;
+import org.epcglobalinc.tdt.LevelTypeList;
 
 public class TestCaseSgtin extends TestCase
 {

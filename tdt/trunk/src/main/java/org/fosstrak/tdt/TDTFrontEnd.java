@@ -22,7 +22,7 @@ package org.fosstrak.tdt;
 
 import java.util.HashMap;
 
-import epcglobalinc.generated.LevelTypeList;
+import org.epcglobalinc.tdt.LevelTypeList;
 
 public class TDTFrontEnd { // demonstration front-end application which makes
 	// use of the TDT package

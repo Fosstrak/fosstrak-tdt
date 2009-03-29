@@ -52,15 +52,15 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import epcglobalinc.generated.EpcTagDataTranslation;
-import epcglobalinc.generated.Field;
-import epcglobalinc.generated.Level;
-import epcglobalinc.generated.LevelTypeList;
-import epcglobalinc.generated.ModeList;
-import epcglobalinc.generated.Option;
-import epcglobalinc.generated.PadDirectionList;
-import epcglobalinc.generated.Rule;
-import epcglobalinc.generated.Scheme;
+import org.epcglobalinc.tdt.EpcTagDataTranslation;
+import org.epcglobalinc.tdt.Field;
+import org.epcglobalinc.tdt.Level;
+import org.epcglobalinc.tdt.LevelTypeList;
+import org.epcglobalinc.tdt.ModeList;
+import org.epcglobalinc.tdt.Option;
+import org.epcglobalinc.tdt.PadDirectionList;
+import org.epcglobalinc.tdt.Rule;
+import org.epcglobalinc.tdt.Scheme;
 
 
 import org.w3c.dom.Document;
