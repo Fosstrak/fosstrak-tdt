@@ -8,7 +8,7 @@
   <groupId>org.fosstrak.tdt</groupId>
   <artifactId>tdt</artifactId>
   <version>0.4.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>bundle</packaging>
   <modelVersion>4.0.0</modelVersion>
 
 
@@ -152,6 +152,7 @@
           <target>1.5</target>
         </configuration>
       </plugin>
+	  <!--
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>  
@@ -164,8 +165,30 @@
             </manifest>
           </archive>
         </configuration>
-      </plugin>
-	  
+      </plugin> 
+	  <plugin>   
+         <groupId>org.apache.felix</groupId>
+         <artifactId>maven-bundle-plugin</artifactId>
+         <executions>
+          <execution>
+          <id>bundle-manifest</id>
+          <phase>process-classes</phase>
+          <goals>    
+            <goal>manifest</goal>
+          </goals>   
+         </execution>
+        </executions>
+      </plugin>-->
+	  <plugin>    
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+          </instructions>
+        </configuration>
+      </plugin>    
+
 	  <plugin>
             <groupId>com.sun.tools.xjc.maven2</groupId>
             <artifactId>maven-jaxb-plugin</artifactId>

@@ -38,6 +38,5 @@ CLASSPATH.
 			values into small integer Company Prefix Index
 			values for use on 64-bit EPC tags
 			
-TDTFrontEnd.java contains an example of how to use the TDT package and 
-can be run by executing the jar file.
+TDTFrontEnd.java contains an example of how to use the TDT package.
 
