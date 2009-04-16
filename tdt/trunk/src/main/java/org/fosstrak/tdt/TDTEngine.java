@@ -746,7 +746,7 @@ public class TDTEngine {
 	 * 
 	 * Converts a binary string into a large integer (numeric string)
 	 */
-	private String bin2dec(String binary) {
+	public String bin2dec(String binary) {
 		BigInteger dec = new BigInteger(binary, 2);
 		return dec.toString();
 	}
@@ -755,7 +755,7 @@ public class TDTEngine {
 	 * 
 	 * Converts a large integer (numeric string) to a binary string
 	 */
-	private String dec2bin(String decimal) {
+	public String dec2bin(String decimal) {
 		// TODO: required?
 		if (decimal == null) {
 			decimal = "1";
@@ -768,7 +768,7 @@ public class TDTEngine {
 	 * 
 	 * Converts a hexadecimal string to a binary string
 	 */
-	private String hex2bin(String hex) {
+	public String hex2bin(String hex) {
 		BigInteger bin = new BigInteger(hex.toLowerCase(), 16);
 		return bin.toString(2);
 	}
@@ -777,7 +777,7 @@ public class TDTEngine {
 	 * 
 	 * Converts a binary string to a hexadecimal string
 	 */
-	private String bin2hex(String binary) {
+	public String bin2hex(String binary) {
 		BigInteger hex = new BigInteger(binary, 2);
 		return hex.toString(16).toUpperCase();
 	}
