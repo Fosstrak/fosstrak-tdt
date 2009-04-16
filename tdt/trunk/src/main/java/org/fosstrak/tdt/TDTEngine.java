@@ -54,6 +54,8 @@ import javax.xml.xpath.XPathFactory;
 
 import org.epcglobalinc.tdt.EpcTagDataTranslation;
 import org.epcglobalinc.tdt.Field;
+import org.epcglobalinc.tdt.GEPC64;
+import org.epcglobalinc.tdt.GEPC64Entry;
 import org.epcglobalinc.tdt.Level;
 import org.epcglobalinc.tdt.LevelTypeList;
 import org.epcglobalinc.tdt.ModeList;
@@ -61,8 +63,6 @@ import org.epcglobalinc.tdt.Option;
 import org.epcglobalinc.tdt.PadDirectionList;
 import org.epcglobalinc.tdt.Rule;
 import org.epcglobalinc.tdt.Scheme;
-
-
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -76,6 +76,7 @@ import org.xml.sax.SAXException;
  * @author Mark Harrison [University of Cambridge] - mark.harrison@cantab.net
  * @author James Brusey
  * @author Jochen Mader - jochen@pramari.com
+ * @author Christian Floerkemeier
  */
 public class TDTEngine {
 
@@ -283,7 +284,7 @@ public class TDTEngine {
 	 */
 	private Unmarshaller getUnmarshaller() throws JAXBException {
 		JAXBContext context = JAXBContext.newInstance(
-				EpcTagDataTranslation.class, GEPC64Table.class, Entry.class);
+				EpcTagDataTranslation.class, GEPC64.class, GEPC64Entry.class);
 		return context.createUnmarshaller();
 	}
 
@@ -323,12 +324,12 @@ public class TDTEngine {
 		URLConnection urlcon = auxiliary.openConnection();
 		urlcon.connect();
 		// load the GEPC64Table
-		JAXBElement<GEPC64Table> el = unmar.unmarshal(new StreamSource(urlcon
-				.getInputStream()), GEPC64Table.class);
-		GEPC64Table cpilookup = el.getValue();
-		for (Entry entry : cpilookup.getEntryList()) {
+		JAXBElement<GEPC64> el = unmar.unmarshal(new StreamSource(urlcon
+				.getInputStream()), GEPC64.class);
+		GEPC64 cpilookup = el.getValue();
+		for (GEPC64Entry entry : cpilookup.getEntry()) {
 			String comp = entry.getCompanyPrefix();
-			String indx = Integer.toString(entry.getIndex());
+			String indx = entry.getIndex().toString();
 			gs1cpi.put(indx, comp);
 			gs1cpi.put(comp, indx);
 		}
