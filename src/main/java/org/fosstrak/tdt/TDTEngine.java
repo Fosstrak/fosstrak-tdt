@@ -190,7 +190,7 @@ public class TDTEngine {
 		URL auxiliary = this.getClass().getClassLoader().getResource(
 				"auxiliary/ManagerTranslation.xml");
 
-		URL schemes = TDTFrontEnd.class.getClassLoader().getResource(
+		URL schemes = TDTEngine.class.getClassLoader().getResource(
 				"schemes/schemes.list");
 
 		URLConnection urlcon = schemes.openConnection();
@@ -199,7 +199,7 @@ public class TDTEngine {
 				.getInputStream()));
 		String line;
 		for (; (line = in.readLine()) != null;) {
-			loadEpcTagDataTranslation(unmar, TDTFrontEnd.class.getClassLoader()
+			loadEpcTagDataTranslation(unmar, TDTEngine.class.getClassLoader()
 					.getResource("schemes/" + line));
 		}
 		loadGEPC64Table(unmar, auxiliary);
