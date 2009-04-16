@@ -138,6 +138,21 @@ public class TestCaseSgtin extends TestCase
 	}
 
     }
+    
+    public void testSgtin64() {
+    	params.put("taglength", "64");
+    	params.put("filter", "3");
+    	params.put("companyprefixlength", "7");
+    	String orig = "gtin=20073796510026;serial=1";
+    	String s = engine.convert(orig,
+    				  params,
+    				  LevelTypeList.BINARY);
+    	//               ................................................................................................
+    	String expect = "1001100000010011110001111010100011110100000000000000000000000001";
+    	//                  9   8   1   3   c   7   a   8   f   4   0   0   0   0   0   1
+    	Assert.assertEquals(expect, s);
+        }
+    
 
     public void testUsDod96() {
 	params.put("taglength", "96");
