@@ -185,6 +185,8 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
+			<Export-Package>org.epcglobalinc.tdt</Export-Package>
+			<Import-Package>!org.epcglobalinc.tdt,*</Import-Package> 
           </instructions>
         </configuration>
       </plugin>    
