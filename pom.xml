@@ -186,7 +186,7 @@
         <configuration>
           <instructions>
 			<Export-Package>org.epcglobalinc.tdt</Export-Package>
-			<Import-Package>!org.epcglobalinc.tdt,*</Import-Package> 
+			<Import-Package>*</Import-Package> 
           </instructions>
         </configuration>
       </plugin>    
@@ -204,6 +204,7 @@
             </executions>
 	    <configuration>
 		<generatePackage>org.epcglobalinc.tdt</generatePackage>
+		<schemaDirectory>src/main/resources/xsd</schemaDirectory>
 	    </configuration> 
       </plugin>
 	  
