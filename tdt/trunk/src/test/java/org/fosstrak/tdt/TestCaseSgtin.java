@@ -20,11 +20,17 @@
 
 package org.fosstrak.tdt;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
+import net.sf.csv4j.CSVFieldMapProcessor;
+import net.sf.csv4j.CSVFileProcessor;
+import net.sf.csv4j.ParseException;
+import net.sf.csv4j.ProcessingException;
 
 import org.epcglobalinc.tdt.LevelTypeList;
 
@@ -179,4 +185,61 @@ public class TestCaseSgtin extends TestCase
 	//                  c   e   7   1   1   3   3   e   3   1   f   c   1   c   3   5
 	Assert.assertEquals(expect, s);
     }
+
+    public void testCSVTestSet() throws ParseException, IOException, ProcessingException {
+    	
+    	String testFile = "src/test/resources/TestCases1.csv";
+    	File file = new File(testFile);
+    	if (file.exists()) {    	
+    	
+    	final CSVFileProcessor fp = new CSVFileProcessor();
+    	fp.processFile( testFile, new CSVFieldMapProcessor() {
+
+    	    public void processDataLine( final int linenumber, final Map<String,String> fields ) {
+    	        
+    	    	System.out.println("Line: " + linenumber);
+    	    	System.out.println("hex: " + fields.get("hex"));
+    	    	System.out.println("urn: " + fields.get("urn"));
+    	    	System.out.println("unknown: " + fields.get("unknown"));
+    	    	System.out.println("status: " + fields.get("status"));
+    	    	
+    	    	
+    	    	
+    	    	// print out the field names and values
+    	        // for ( final Entry field : fields.entrySet() ) {
+    	            //System.out.println( String.format( "Line #%d: field: %s=%s", linenumber, field.getKey(), field.getValue() ));
+    	              
+    	        //}
+    	    }
+
+    	    public boolean continueProcessing()
+    	    {
+    	        return true;
+    	    }
+    	} );
+
+    	
+    	}
+    	
+    	
+    	
+    	
+    	
+    	
+    }
+    
+/*
+    public void testNoGEPCSpecified() throws IOException, JAXBException {
+    	
+    	File file = new File("target/auxiliary/ManagerTranslation.xml");
+    	
+        URL auxurl = file.toURL();
+        System.err.println(auxurl);
+    	URL schemeurl = new URL("file:\\\\C:\\Documents and Settings\\floerkem\\Desktop\\tdttrunk\\target\\classes\\schemes");
+    	engine = new TDTEngine(schemeurl,schemeurl);
+    	System.err.println("My code is executed");
+    }
+*/
+
+
 }
