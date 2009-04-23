@@ -38,6 +38,12 @@
       <artifactId>xercesImpl</artifactId>
       <version>2.2.1</version>
     </dependency>
+	<dependency>
+      <groupId>net.sf.csv4j</groupId>
+      <artifactId>csv4j</artifactId>
+      <version>0.4.0</version>
+	  <scope>test</scope>
+    </dependency>
   </dependencies>
 
 
@@ -65,7 +71,11 @@
       <url>http://maven-repository.fosstrak.org/releases</url>
       <layout>default</layout>
     </repository>
-	
+	<repository>
+      <id>aduna-software</id>
+      <url>http://repository.aduna-software.org/maven2</url>
+      <layout>default</layout>
+    </repository>
 
   </repositories>
 <pluginRepositories>
