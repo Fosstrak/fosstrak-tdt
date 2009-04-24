@@ -195,7 +195,7 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-			<Export-Package>org.epcglobalinc.tdt</Export-Package>
+			<Export-Package>org.epcglobalinc.tdt;-noimport:=true,org.fosstrak.tdt;-noimport:=true,schemes;-noimport:=true,auxiliary;-noimport:=true</Export-Package>
 			<Import-Package>*</Import-Package> 
           </instructions>
         </configuration>
