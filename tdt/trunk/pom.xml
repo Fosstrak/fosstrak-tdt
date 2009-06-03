@@ -125,13 +125,6 @@
       <post>fosstrak-tdt-user@lists.sourceforge.net</post>
       <archive>http://sourceforge.net/mailarchive/forum.php?forum=fosstrak-tdt-user</archive>
     </mailingList>
-    <mailingList>
-      <name>Tag Data Translation developer mailing list</name>
-      <subscribe>https://lists.sourceforge.net/lists/listinfo/fosstrak-tdt-developer</subscribe>
-      <unsubscribe>https://lists.sourceforge.net/lists/listinfo/fosstrak-tdt-developer</unsubscribe>
-      <post>fosstrak-tdt-developer@lists.sourceforge.net</post>
-      <archive>http://sourceforge.net/mailarchive/forum.php?forum=fosstrak-tdt-developer</archive>
-    </mailingList>
   </mailingLists>
 
 
@@ -230,7 +223,7 @@
         <configuration>
           <descriptors>
             <descriptor>src/main/assembly/src.xml</descriptor>
-            <descriptor>src/main/assembly/bin-with-dependencies.xml</descriptor>
+            <descriptor>src/main/assembly/jar-with-dependencies.xml</descriptor>
           </descriptors>
         </configuration>
         <executions>
