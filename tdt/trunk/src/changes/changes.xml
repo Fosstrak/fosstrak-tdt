@@ -3,11 +3,26 @@
         <title>Changes tdt</title>
     </properties>
     <body>
+	    <release version="0.9.0" date="2009-06-03" description="Feature Release">
+            <action dev="floerkem" type="add" due-to="Jochen Mader">
+                added support for loading TDT translation schemes from a URL
+            </action>
+            <action dev="floerkem" type="add" due-to="Jochen Mader">
+                added default constructor that loads EPCglobal TDT translation schemes from within the jar (previously the schemes could only be loaded from an external file system location)
+            </action>
+			<action dev="floerkem" type="add">
+                manifest file is osgi-bundle compliant now
+            </action>
+			<action dev="floerkem" type="update" due-to="Jochen Mader">
+                replaced castor dependency with xerces
+            </action>
+        </release>
         <release version="0.4.0" date="2008-07-29"
             description="Project name changed to Fosstrak">
             <action dev="roduner" type="update">
                 Renamed packages from org.accada to org.fosstrak.
             </action>
         </release>
+		
     </body>
 </document>
