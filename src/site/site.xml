@@ -24,7 +24,7 @@
 	  <item name="LLRP Commander" href="../llrp/index.html"/>
     </links>
    
-    <menu name="Tag Data Translation Project">
+    <menu name="TDT Engine">
       <item name="Overview" href="/index.html"/>
 	  <item name="User Guide" href="/user-index.html"/>
       <item name="Download" href="/download.html"/>
@@ -42,7 +42,7 @@
 
      <breadcrumbs>
          <item href="../index.html" name="Fosstrak" />
-         <item name="Tag Data Translation"/> <!-- href is derived from project.url -->
+         <item name="TDT Engine"/> <!-- href is derived from project.url -->
   </breadcrumbs>
   
   </body>
