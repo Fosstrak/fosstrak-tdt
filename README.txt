@@ -20,23 +20,3 @@ Please e-mail mark.harrison@cantab.net to provide feedback.
 
 
 
-The two subdirectories 'schemes' and 'auxiliary' need to be copied to
-a local directory.  The path name of the local directory must be
-provided as the only string input parameter to the TDTEngine
-constructor.
-
-The jar file should be included in your
-CLASSPATH.
-
-'schemes' contains Tag Data Translation definition files in xml format
-			for all coding schemes defined in EPCglobal
-			Tag Data Standards v1.1 r1.27
-			
-'auxiliary' contains a copy of 'ManagerTranslation.xml' obtained from
-			http://www.onsepc.com/ManagerTranslation.xml
-			This is used for converting GS1 Company Prefix
-			values into small integer Company Prefix Index
-			values for use on 64-bit EPC tags
-			
-TDTFrontEnd.java contains an example of how to use the TDT package.
-
