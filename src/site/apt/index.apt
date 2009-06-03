@@ -8,12 +8,9 @@
 Fosstrak TDT Engine: An Easy Way to Convert Between Different EPC Representations
 
 
-* Objective
-
-     An EPC identifier may be expressed in a number of representations or encodings, such as BINARY, tag-encoding URI, pure-identity URI, legacy formats
-     
-     The Tag Data Translation (TDT) provides flexible translation (encoding/decoding) between these different representations of an EPC. For example, TDT allows a binary string to be converted into a URI representation or vice versa.
-     The coding schemes specified in {{{http://www.epcglobalinc.org} EPCglobal Tag Data Standards v1.27}} are supported in v1.0 of Tag Data Translation. Fosstrak's TDTEngine makes use of the XML schema and instance files defined in EPCglobal Tag Data Translation v1.0
+     An EPC identifier may be expressed in a number of representations or encodings, such as BINARY, tag-encoding URI, pure-identity URI, legacy formats. The Fosstrak Tag Data Translation (TDT) Engine provides flexible translation (encoding/decoding) between these different representations of an EPC. For example, our TDT Engine allows a binary string to be converted into a URI representation or vice versa.
+	 
+     The Fosstrak TDTEngine makes use of the XML schema and instance files defined in EPCglobal Tag Data Translation v1.0 and represents a convenient way for Java developers to integrate TDT functionality into their software. 
   
 
 [images/TDTOverview.png]
