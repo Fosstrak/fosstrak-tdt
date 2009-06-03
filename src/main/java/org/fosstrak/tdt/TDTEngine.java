@@ -170,18 +170,14 @@ public class TDTEngine {
 
 	/**
 	 * Constructor for a new Tag Data Translation engine. This constructor uses
-	 * the schemes included on the classpath. All files are unmarshalled using
-	 * JAXB.
+	 * the schemes included on the classpath in a directory called schemes 
+           * (or from within the jar). The ManagerTranslation.xml file is loaded from a directory
+	* called auxiliary on the classpath. All schemes used need to be listed in a file schemes/schemes.list	   
 	 * 
-	 * @param auxiliary
-	 *            URL to the auxiliary file containing a GEPC64Table
-	 * @param schemes
-	 *            directory containing the schemes, all files ending in xml are
-	 *            read and parsed
 	 * @throws IOException
 	 *             thrown if the url is unreachable
 	 * @throws JAXBException
-	 *             thrown if the files could not be parsed
+	 *             thrown if the schemes could not be parsed
 	 */
 	public TDTEngine() throws IOException, JAXBException {
 		
