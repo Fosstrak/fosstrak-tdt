@@ -1,52 +1,40 @@
-       ------
-                                    Download
-                                    ------
-                                    ------
+              -------------------
+              Download
+              -------------------
+              -------------------
+              -------------------
 
 
+Download
 
-Download 
+  The current version of Fosstrak TDT Engine is 0.9.0.
 
-* Tag Data Translation (TDT)
 
-*---------------------+------+------+
- Package | Binaries | Source
-*---------------------+------+------+
- TDT 0.4.0 (zip) | {{{http://maven-repository.fosstrak.org/releases/org/fosstrak/tdt/tdt/0.4.0/tdt-0.4.0-bin-with-dependencies.zip}tdt-0.4.0-bin-with-dependencies.zip}} | {{{http://maven-repository.fosstrak.org/releases/org/fosstrak/tdt/tdt/0.4.0/tdt-0.4.0-src.zip}tdt-0.4.0-src.zip}}
- TDT 0.4.0 (tar.gz) | {{{http://maven-repository.fosstrak.org/releases/org/fosstrak/tdt/tdt/0.4.0/tdt-0.4.0-bin-with-dependencies.tar.gz}tdt-0.4.0-bin-with-dependencies.tar.gz}} | {{{http://maven-repository.fosstrak.org/releases/org/fosstrak/tdt/tdt/0.4.0/tdt-0.4.0-src.tar.gz}tdt-0.4.0-src.tar.gz}}
-*---------------------+------+------+
- 
+* Latest Releases 
 
-     
+*------------+---------+---------------------------+------------+----------+
+ <<Package>> | <<JAR>> | <<JAR with Dependencies>> | <<Source>> | <<Notes>> 
+*------------+---------+---------------------------+------------+----------+
+ TDT 0.9.0 | {{{http://maven-repository.fosstrak.org/releases/org/fosstrak/tdt/tdt/0.9.0/tdt-0.9.0.jar}tdt-0.9.0.jar}} |  {{{http://maven-repository.fosstrak.org/releases/org/fosstrak/tdt/tdt/0.9.0/tdt-0.9.0-with-dependencies.jar}tdt-0.9.0-with-dependencies.jar}} | {{{http://maven-repository.fosstrak.org/releases/org/fosstrak/tdt/tdt/0.9.0/tdt-0.9.0-src.zip}tdt-0.9.0-src.zip}} |{{{changes-report.html}Changes}} 
+*------------+---------+---------------------------+------------+----------+
+
+
+* Previous Releases
+
+  All previous releases of Fosstrak TDT can be found in the {{{http://maven-repository.fosstrak.org/releases}distribution repository}}.
+
 
 * System Requirements
 
-*---------------------+------+
- Java Virtual Machine | JDK 1.5 
-*---------------------+------+
- Operating System | No minimum requirement. Tested on Windows XP. 
-*---------------------+------+
-
-    	
-
-
+*---------------------+---------+
+ <<JDK>>              | 1.6.0_05 or higher
+*---------------------+---------+
+ <<Memory>>           | No minimum requirements.
+*---------------------+---------+
+ <<Operating System>> | No minimum requirements. Tested on Windows XP. 
+*---------------------+---------+
 
 
+* Installation and Usage Instructions
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
- 
-
- 
- 
- 
- 
+  Please consult the {{{user-index.html} User Guide}} for usage instructions.
