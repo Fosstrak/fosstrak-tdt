@@ -1,0 +1,28 @@
+<document>
+    <properties>
+        <title>Changelog Fosstrak TDT Engine</title>
+    </properties>
+    <body>
+	    <release version="0.9.0" date="2009-06-03" description="Feature Release">
+            <action dev="floerkem" type="add" due-to="Jochen Mader">
+                Added support for loading TDT translation schemes from a URL.
+            </action>
+            <action dev="floerkem" type="add" due-to="Jochen Mader">
+                Added default constructor that loads EPCglobal TDT translation schemes from within the JAR. (Previously the schemes could only be loaded from an external file system location.)
+            </action>
+			<action dev="floerkem" type="add">
+                Manifest file is OSGI bundle-compliant now.
+            </action>
+			<action dev="floerkem" type="update" due-to="Jochen Mader">
+                Replaced Castor dependency with Xerces.
+            </action>
+        </release>
+        <release version="0.4.0" date="2008-07-29"
+            description="Project name changed to Fosstrak">
+            <action dev="roduner" type="update">
+                Renamed packages from org.accada to org.fosstrak.
+            </action>
+        </release>
+		
+    </body>
+</document>
