@@ -22,6 +22,10 @@ package org.fosstrak.tdt;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -219,12 +223,26 @@ public class TestCaseSgtin extends TestCase
     	} );
 
     	
+    	
     	}
     	
     	
     	
     	
     	
+    	
+    }
+    
+    public void testAddGCPs() throws IOException {
+
+    	URL u;
+    	InputStream is = null;
+
+    	u = new URL("http://www.onsepc.com/ManagerList.csv");
+
+    	is = u.openStream();         
+    	
+    	engine.addListOfGCPs(is);
     	
     }
     

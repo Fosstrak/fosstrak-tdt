@@ -23,6 +23,7 @@ package org.fosstrak.tdt;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.net.MalformedURLException;
@@ -1404,4 +1405,194 @@ public class TDTEngine {
 
 		return option;
 	}
+	
+	/** 
+	 * adds a list of global company prefixes (GCPs) to the current list of GCPs.
+	 * The list of GCPs is used to convert a GTIN and serial or an SSCC to an 
+	 * EPC number when the user does not provide length of the GCP.
+	 * 
+	 * The method expects the individual GCPs to be on a new line each. It is up 
+	 * to the user to determine wher the GCPs are read from (normal file, network, 
+	 * onsepc.com)
+	 * 
+	 *  @param inputstream 
+	 *  			a reference to a source of GCPs 
+	 * @throws IOException 
+	 */
+	
+	public void addListOfGCPs(InputStream source) throws IOException {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(
+	            source, "US-ASCII"));
+	    try {
+	      String line;
+	      while ((line = br.readLine()) != null) {
+	        //System.out.println(line);
+	      }
+	    } finally {
+	      br.close();
+	    }	   
+	}
+	
+	/**
+	 * converts a GTIN and serial number to the pure identity representation of an EPC. 
+	 * The method looks up the length of the global company prefix from a list that can 
+	 * loaded into the TDT engine.
+	 * 
+	 *  @params gtin
+	 *  @params serial
+	 *  @returns pure identity EPC
+	 *  
+	 */ 
+	
+	public String convertGTINandSerialToPureIdentityEPC(String gtin, String serial) {
+		
+		return " ";
+		
+	}
+	
+	/**
+	 * converts a GTIN and serial number to the pure identity representation of an EPC. 
+	 * The length of the global company prefix is provided as a method parameter.
+	 * 
+	 *  @params gtin
+	 *  @params serial
+	 *  @params length of global company prefix
+	 *  @returns pure identity EPC
+	 *  
+	 */ 
+	
+	public String convertGTINandSerialToPureIdentityEPC(String gtin, String serial, int gcpLength) {
+		
+		return " ";
+		
+	}
+	
+	/**
+	 * converts a pure identity EPC to gtin and serial. 
+	 * 
+	 *  @params epc in pure identity format
+	 *  @returns List with gtin and serial
+	 *  
+	 */ 
+	
+	public List<String> convertPureIdentityEPCToGTINandSerial(String EPC) {
+		
+		return new ArrayList<String>();
+		
+	}
+	
+	
+	/**
+	 * converts a SSCC to the pure identity representation of an EPC. The method looks up 
+	 * the length of the global company prefix from a list that can loaded into the TDT 
+	 * engine via the addGCPs  
+	 * 
+	 *  @params gtin
+	 *  @params serial
+	 *  @returns pure identity EPC
+	 *  
+	 */ 
+	
+	public String convertSSCCToPureIdentityEPC(String sscc) {
+		
+		return " ";
+		
+	}
+	
+	/**
+	 * converts a SSCC to the pure identity representation of an EPC. 
+	 * The length of the global company prefix is provided as a method parameter.
+	 *  @params gtin
+	 *  @params serial
+	 *  @params length of global company prefix
+	 *  @returns pure identity EPC
+	 *  
+	 */ 
+	
+	public String convertSSCCToPureIdentityEPC(String sscc, int gcpLength) {
+		
+		return " ";
+		
+	}
+	
+	/**
+	 * converts a pure identity EPC to gtin and serial. 
+	 * 
+	 *  @params epc in pure identity format
+	 *  @returns List with gtin and serial
+	 *  
+	 */ 
+	
+	public String convertPureIdentityEPCToSSCC(String EPC) {
+		
+		return " ";
+		
+	}
+	
+	
+	
+	/**
+	 * converts a GLN and serial to the pure identity representation of an EPC. The method looks up 
+	 * the length of the global company prefix from a list that can loaded into the TDT 
+	 * engine. 
+	 * 
+	 *  @params gtin
+	 *  @params serial
+	 *  @returns pure identity EPC
+	 *  
+	 */ 
+	
+	public String convertGLNandSerialToPureIdentityEPC(String gln, String serial) {
+		
+		return " ";
+		
+	}
+	
+	/**
+	 * converts a GLN and serial to the pure identity representation of an EPC.
+	 * The length of the global company prefix is provided as a method parameter.
+	 *  @params gtin
+	 *  @params serial
+	 *  @params length of global company prefix
+	 *  @returns pure identity EPC
+	 *  
+	 */ 
+	
+	public String convertGLNandSerialToPureIdentityEPC(String gln, String serial, int gcpLength) {
+		
+		return " ";
+		
+	}
+	
+	
+	
+	/**
+	 * converts a binary EPC to a pure identity representation. 
+	 *  @params binary EPC
+	 *  @returns pure identity EPC
+	 *  
+	 */ 
+	
+	public String convertBinaryEPCToPureIdentityEPC(String binary) {
+		
+		return " ";
+		
+	}
+	
+	/**
+	 * converts a binary EPC in hex notation to a pure identity representation. 
+	 *  @params hexadecimal EPC
+	 *  @returns pure identity EPC
+	 *  
+	 */ 
+	
+	public String convertHexEPCToPureIdentityEPC(String binary) {
+		
+		return " ";
+		
+	}
+	
+
+	
 }
