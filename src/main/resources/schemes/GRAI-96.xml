@@ -155,5 +155,34 @@
 			<rule type="FORMAT" inputFormat="STRING" seq="1" newFieldName="graiprefix" characterSet="[0-9]*" length="13" function="CONCAT(0,companyprefix,assettype)"/>
 			<rule type="FORMAT" inputFormat="STRING" seq="2" newFieldName="checkdigit" characterSet="[0-9]*" length="1" function="GS1CHECKSUM(graiprefix)"/>
 		</level>
+		<level type="LEGACY_AI" prefixMatch="(8003)" requiredParsingParameters="companyprefixlength" >
+			<option optionKey="12" pattern="\(8003\)([0-9]{15,30})" grammar="'(8003)' '0' companyprefix assettype checkdigit serial" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999999999999999999999999999999999" characterSet="[0-9]*" name="grai"/>
+			</option>
+			<option optionKey="11" pattern="\(8003\)([0-9]{15,30})" grammar="'(8003)' '0' companyprefix assettype checkdigit serial" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999999999999999999999999999999999" characterSet="[0-9]*" name="grai"/>
+			</option>
+			<option optionKey="10" pattern="\(8003\)([0-9]{15,30})" grammar="'(8003)' '0' companyprefix assettype checkdigit serial" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999999999999999999999999999999999" characterSet="[0-9]*" name="grai"/>
+			</option>
+			<option optionKey="9" pattern="\(8003\)([0-9]{15,30})" grammar="'(8003)' '0' companyprefix assettype checkdigit serial" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999999999999999999999999999999999" characterSet="[0-9]*" name="grai"/>
+			</option>
+			<option optionKey="8" pattern="\(8003\)([0-9]{15,30})" grammar="'(8003)' '0' companyprefix assettype checkdigit serial" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999999999999999999999999999999999" characterSet="[0-9]*" name="grai"/>
+			</option>
+			<option optionKey="7" pattern="\(8003\)([0-9]{15,30})" grammar="'(8003)' '0' companyprefix assettype checkdigit serial" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999999999999999999999999999999999" characterSet="[0-9]*" name="grai"/>
+			</option>
+			<option optionKey="6" pattern="\(8003\)([0-9]{15,30})" grammar="'(8003)' '0' companyprefix assettype checkdigit serial" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999999999999999999999999999999999" characterSet="[0-9]*" name="grai"/>
+			</option>
+			<rule type="EXTRACT" inputFormat="STRING" seq="1" newFieldName="graiprefixremainder" characterSet="[0-9]*" length="12" function="SUBSTR(grai,1,12)"/>
+			<rule type="EXTRACT" inputFormat="STRING" seq="2" newFieldName="assettype" characterSet="[0-9]*" function="SUBSTR(graiprefixremainder,companyprefixlength)"/>
+			<rule type="EXTRACT" inputFormat="STRING" seq="3" newFieldName="serial" characterSet="[0-9]*" function="SUBSTR(grai,14)"/>
+			<rule type="EXTRACT" inputFormat="STRING" seq="4" newFieldName="companyprefix" characterSet="[0-9]*" function="SUBSTR(graiprefixremainder,0,companyprefixlength)"/>
+			<rule type="FORMAT" inputFormat="STRING" seq="1" newFieldName="graiprefix" characterSet="[0-9]*" length="13" function="CONCAT(0,companyprefix,assettype)"/>
+			<rule type="FORMAT" inputFormat="STRING" seq="2" newFieldName="checkdigit" characterSet="[0-9]*" length="1" function="GS1CHECKSUM(graiprefix)"/>
+		</level>
 	</scheme>
 </epcTagDataTranslation>

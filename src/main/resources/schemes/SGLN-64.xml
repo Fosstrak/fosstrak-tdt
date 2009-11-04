@@ -164,5 +164,40 @@
 			<rule type="FORMAT" inputFormat="STRING" seq="1" newFieldName="glnprefix" characterSet="[0-9]*" length="12" function="CONCAT(companyprefix,locationref)"/>
 			<rule type="FORMAT" inputFormat="STRING" seq="2" newFieldName="checkdigit" characterSet="[0-9]*" length="1" function="GS1CHECKSUM(glnprefix)"/>
 		</level>
+		<level type="LEGACY_AI" prefixMatch="(414)" requiredParsingParameters="companyprefixlength" >
+			<option optionKey="12" pattern="\(414\)([0-9]{13})\(254\)([0-9]*)" grammar="'(414)' companyprefix locationref checkdigit '(254)' serial" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999999" characterSet="[0-9]*" length="13" padChar="0" padDir="LEFT" name="gln"/>
+				<field seq="2" decimalMinimum="0" decimalMaximum="524287" characterSet="[0-9]*" name="serial"/>
+			</option>
+			<option optionKey="11" pattern="\(414\)([0-9]{13})\(254\)([0-9]*)" grammar="'(414)' companyprefix locationref checkdigit '(254)' serial" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999999" characterSet="[0-9]*" length="13" padChar="0" padDir="LEFT" name="gln"/>
+				<field seq="2" decimalMinimum="0" decimalMaximum="524287" characterSet="[0-9]*" name="serial"/>
+			</option>
+			<option optionKey="10" pattern="\(414\)([0-9]{13})\(254\)([0-9]*)" grammar="'(414)' companyprefix locationref checkdigit '(254)' serial" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999999" characterSet="[0-9]*" length="13" padChar="0" padDir="LEFT" name="gln"/>
+				<field seq="2" decimalMinimum="0" decimalMaximum="524287" characterSet="[0-9]*" name="serial"/>
+			</option>
+			<option optionKey="9" pattern="\(414\)([0-9]{13})\(254\)([0-9]*)" grammar="'(414)' companyprefix locationref checkdigit '(254)' serial" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999999" characterSet="[0-9]*" length="13" padChar="0" padDir="LEFT" name="gln"/>
+				<field seq="2" decimalMinimum="0" decimalMaximum="524287" characterSet="[0-9]*" name="serial"/>
+			</option>
+			<option optionKey="8" pattern="\(414\)([0-9]{13})\(254\)([0-9]*)" grammar="'(414)' companyprefix locationref checkdigit '(254)' serial" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999999" characterSet="[0-9]*" length="13" padChar="0" padDir="LEFT" name="gln"/>
+				<field seq="2" decimalMinimum="0" decimalMaximum="524287" characterSet="[0-9]*" name="serial"/>
+			</option>
+			<option optionKey="7" pattern="\(414\)([0-9]{13})\(254\)([0-9]*)" grammar="'(414)' companyprefix locationref checkdigit '(254)' serial" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999999" characterSet="[0-9]*" length="13" padChar="0" padDir="LEFT" name="gln"/>
+				<field seq="2" decimalMinimum="0" decimalMaximum="524287" characterSet="[0-9]*" name="serial"/>
+			</option>
+			<option optionKey="6" pattern="\(414\)([0-9]{13})\(254\)([0-9]*)" grammar="'(414)' companyprefix locationref checkdigit '(254)' serial" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999999" characterSet="[0-9]*" length="13" padChar="0" padDir="LEFT" name="gln"/>
+				<field seq="2" decimalMinimum="0" decimalMaximum="524287" characterSet="[0-9]*" name="serial"/>
+			</option>
+			<rule type="EXTRACT" inputFormat="STRING" seq="1" newFieldName="glnprefixremainder" characterSet="[0-9]*" length="12" function="SUBSTR(gln,0,12)"/>
+			<rule type="EXTRACT" inputFormat="STRING" seq="2" newFieldName="locationref" characterSet="[0-9]*" function="SUBSTR(glnprefixremainder,companyprefixlength)"/>
+			<rule type="EXTRACT" inputFormat="STRING" seq="3" newFieldName="companyprefix" characterSet="[0-9]*" function="SUBSTR(glnprefixremainder,0,companyprefixlength)"/>
+			<rule type="FORMAT" inputFormat="STRING" seq="1" newFieldName="glnprefix" characterSet="[0-9]*" length="12" function="CONCAT(companyprefix,locationref)"/>
+			<rule type="FORMAT" inputFormat="STRING" seq="2" newFieldName="checkdigit" characterSet="[0-9]*" length="1" function="GS1CHECKSUM(glnprefix)"/>
+		</level>
 	</scheme>
 </tdt:epcTagDataTranslation>
