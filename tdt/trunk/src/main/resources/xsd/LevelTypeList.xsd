@@ -13,6 +13,7 @@
 			<xsd:enumeration value="TAG_ENCODING"/>
 			<xsd:enumeration value="PURE_IDENTITY"/>
 			<xsd:enumeration value="LEGACY"/>
+			<xsd:enumeration value="LEGACY_AI"/>
 			<xsd:enumeration value="ONS_HOSTNAME"/>
 		</xsd:restriction>
 	</xsd:simpleType>

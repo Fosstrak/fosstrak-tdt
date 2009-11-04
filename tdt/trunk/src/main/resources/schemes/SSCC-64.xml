@@ -140,5 +140,37 @@
 			<rule type="FORMAT" inputFormat="STRING" seq="3" newFieldName="ssccprefix" characterSet="[0-9]*" length="17" function="CONCAT(extensiondigit,companyprefix,serialrefremainder)"/>
 			<rule type="FORMAT" inputFormat="STRING" seq="4" newFieldName="checkdigit" characterSet="[0-9]*" length="1" function="GS1CHECKSUM(ssccprefix)"/>
 		</level>
+		<level type="LEGACY_AI" prefixMatch="(00)" requiredParsingParameters="companyprefixlength" >
+			<option optionKey="12" pattern="\(00\)([0-9]{18})" grammar="'(00)' extensiondigit companyprefix serialrefremainder checkdigit" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999999999" characterSet="[0-9]*" length="18" padChar="0" padDir="LEFT" name="sscc"/>
+			</option>
+			<option optionKey="11" pattern="\(00\)([0-9]{18})" grammar="'(00)' extensiondigit companyprefix serialrefremainder checkdigit" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999999999" characterSet="[0-9]*" length="18" padChar="0" padDir="LEFT" name="sscc"/>
+			</option>
+			<option optionKey="10" pattern="\(00\)([0-9]{18})" grammar="'(00)' extensiondigit companyprefix serialrefremainder checkdigit" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999999999" characterSet="[0-9]*" length="18" padChar="0" padDir="LEFT" name="sscc"/>
+			</option>
+			<option optionKey="9" pattern="\(00\)([0-9]{18})" grammar="'(00)' extensiondigit companyprefix serialrefremainder checkdigit" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999999999" characterSet="[0-9]*" length="18" padChar="0" padDir="LEFT" name="sscc"/>
+			</option>
+			<option optionKey="8" pattern="\(00\)([0-9]{18})" grammar="'(00)' extensiondigit companyprefix serialrefremainder checkdigit" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999999999" characterSet="[0-9]*" length="18" padChar="0" padDir="LEFT" name="sscc"/>
+			</option>
+			<option optionKey="7" pattern="\(00\)([0-9]{18})" grammar="'(00)' extensiondigit companyprefix serialrefremainder checkdigit" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999999999" characterSet="[0-9]*" length="18" padChar="0" padDir="LEFT" name="sscc"/>
+			</option>
+			<option optionKey="6" pattern="\(00\)([0-9]{18})" grammar="'(00)' extensiondigit companyprefix serialrefremainder checkdigit" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999999999" characterSet="[0-9]*" length="18" padChar="0" padDir="LEFT" name="sscc"/>
+			</option>
+			<rule type="EXTRACT" inputFormat="STRING" seq="1" newFieldName="ssccprefixremainder" characterSet="[0-9]*" length="16" function="SUBSTR(sscc,1,16)"/>
+			<rule type="EXTRACT" inputFormat="STRING" seq="2" newFieldName="extensiondigit" characterSet="[0-9]*" length="1" function="SUBSTR(sscc,0,1)"/>
+			<rule type="EXTRACT" inputFormat="STRING" seq="3" newFieldName="serialrefremainder" characterSet="[0-9]*" function="SUBSTR(ssccprefixremainder,companyprefixlength)"/>
+			<rule type="EXTRACT" inputFormat="STRING" seq="4" newFieldName="serialref" characterSet="[0-9]*" function="CONCAT(extensiondigit,serialrefremainder)"/>
+			<rule type="EXTRACT" inputFormat="STRING" seq="5" newFieldName="companyprefix" characterSet="[0-9]*" function="SUBSTR(ssccprefixremainder,0,companyprefixlength)"/>
+			<rule type="FORMAT" inputFormat="STRING" seq="1" newFieldName="extensiondigit" characterSet="[0-9]*" length="1" function="SUBSTR(serialref,0,1)"/>
+			<rule type="FORMAT" inputFormat="STRING" seq="2" newFieldName="serialrefremainder" characterSet="[0-9]*" function="SUBSTR(serialref,1)"/>
+			<rule type="FORMAT" inputFormat="STRING" seq="3" newFieldName="ssccprefix" characterSet="[0-9]*" length="17" function="CONCAT(extensiondigit,companyprefix,serialrefremainder)"/>
+			<rule type="FORMAT" inputFormat="STRING" seq="4" newFieldName="checkdigit" characterSet="[0-9]*" length="1" function="GS1CHECKSUM(ssccprefix)"/>
+		</level>
 	</scheme>
 </tdt:epcTagDataTranslation>

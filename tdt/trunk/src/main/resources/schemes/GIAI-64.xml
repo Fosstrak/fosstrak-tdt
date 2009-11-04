@@ -133,5 +133,30 @@
 			<rule type="EXTRACT" inputFormat="STRING" seq="1" newFieldName="indassetref" characterSet="[0-9]*" function="SUBSTR(giai,companyprefixlength)"/>
 			<rule type="EXTRACT" inputFormat="STRING" seq="2" newFieldName="companyprefix" characterSet="[0-9]*" function="SUBSTR(giai,0,companyprefixlength)"/>
 		</level>
+		<level type="LEGACY_AI" prefixMatch="(8004)" requiredParsingParameters="companyprefixlength" >
+			<option optionKey="12" pattern="\(8004\)([0-9]{13,30})" grammar="'(8004)' companyprefix indassetref" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999999999999999999999" characterSet="[0-9]*" name="giai"/>
+			</option>
+			<option optionKey="11" pattern="\(8004\)([0-9]{12,30})" grammar="'(8004)' companyprefix indassetref" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999999999999999999999" characterSet="[0-9]*" name="giai"/>
+			</option>
+			<option optionKey="10" pattern="\(8004\)([0-9]{11,30})" grammar="'(8004)' companyprefix indassetref" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999999999999999999999" characterSet="[0-9]*" name="giai"/>
+			</option>
+			<option optionKey="9" pattern="\(8004\)([0-9]{10,30})" grammar="'(8004)' companyprefix indassetref" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999999999999999999999" characterSet="[0-9]*" name="giai"/>
+			</option>
+			<option optionKey="8" pattern="\(8004\)([0-9]{9,30})" grammar="'(8004)' companyprefix indassetref" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999999999999999999999" characterSet="[0-9]*" name="giai"/>
+			</option>
+			<option optionKey="7" pattern="\(8004\)([0-9]{8,30})" grammar="'(8004)' companyprefix indassetref" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999999999999999999999" characterSet="[0-9]*" name="giai"/>
+			</option>
+			<option optionKey="6" pattern="\(8004\)([0-9]{7,30})" grammar="'(8004)' companyprefix indassetref" >
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999999999999999999999" characterSet="[0-9]*" name="giai"/>
+			</option>
+			<rule type="EXTRACT" inputFormat="STRING" seq="1" newFieldName="indassetref" characterSet="[0-9]*" function="SUBSTR(giai,companyprefixlength)"/>
+			<rule type="EXTRACT" inputFormat="STRING" seq="2" newFieldName="companyprefix" characterSet="[0-9]*" function="SUBSTR(giai,0,companyprefixlength)"/>
+		</level>
 	</scheme>
 </epcTagDataTranslation>

@@ -11,6 +11,11 @@
 		<xsd:restriction base="xsd:string">
 			<xsd:enumeration value="64"/>
 			<xsd:enumeration value="96"/>
+			<xsd:enumeration value="113"/>
+			<xsd:enumeration value="170"/>
+			<xsd:enumeration value="195"/>
+			<xsd:enumeration value="198"/>
+			<xsd:enumeration value="202"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 </xsd:schema>
