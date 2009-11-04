@@ -206,17 +206,18 @@ public class TDTEngine {
 	 * Constructor for a new Tag Data Translation engine. All files are
 	 * unmarshalled using JAXB.
 	 * 
-	 * @param auxiliary
-	 *            URL to the auxiliary file containing a GEPC64Table
-	 * @param schemes
-	 *            directory containing the schemes, all files ending in xml are
+	 * @param auxiliarydir
+	 *            URL to the directory containing auxiliary files such as the GEPC64Table, 
+	 *					"ManagerTranslation.xml"
+	 * @param schemesdir
+	 *            URL to the directory containing the schemes, all files ending in xml are
 	 *            read and parsed
 	 * @throws IOException
 	 *             thrown if the url is unreachable
 	 * @throws JAXBException
 	 *             thrown if the files could not be parsed
 	 */
-	public TDTEngine(URL auxiliary, URL schemes) throws IOException,
+	public TDTEngine(URL auxiliarydir, URL schemesdir) throws IOException,
 			JAXBException {
 		Unmarshaller unmar = getUnmarshaller();
 		URLConnection urlcon = schemes.openConnection();
@@ -226,19 +227,21 @@ public class TDTEngine {
 		String line;
 		for (; (line = in.readLine()) != null;) {
 			if (line.endsWith(".xml")) {
-				loadEpcTagDataTranslation(unmar, new URL(schemes.toString()
+				loadEpcTagDataTranslation(unmar, new URL(schemesdir.toString()
 						+ line));
 			}
 		}
-		loadGEPC64Table(unmar, auxiliary);
+		URL GEPC64table = new URL(auxiliarydir, "ManagerTranslation.xml");
+		loadGEPC64Table(unmar, GEPC64table);
 	}
 
 	/**
 	 * Constructor for a new Tag Data Translation engine. All files are
 	 * unmarshalled using JAXB.
 	 * 
-	 * @param auxiliary
-	 *            URL to the auxiliary file containing a GEPC64Table
+	 * @param auxiliarydir
+	 *            URL to the directory containing auxiliary files such as the GEPC64Table, 
+	 *					"ManagerTranslation.xml"
 	 * @param schemes
 	 *            set containing several urls pointing to directories containing
 	 *            the schemes. All files ending in xml are read and parsed.
@@ -249,7 +252,7 @@ public class TDTEngine {
 	 * @throws JAXBException
 	 *             thrown if the files could not be parsed
 	 */
-	public TDTEngine(URL auxiliary, Set<URL> schemes, boolean absolute)
+	public TDTEngine(URL auxiliarydir, Set<URL> schemes, boolean absolute)
 			throws JAXBException, IOException {
 		Unmarshaller unmar = getUnmarshaller();
 		for (URL scheme : schemes) {
@@ -270,7 +273,8 @@ public class TDTEngine {
 				}
 			}
 		}
-		loadGEPC64Table(unmar, auxiliary);
+		URL GEPC64table = new URL(auxiliarydir, "ManagerTranslation.xml");
+		loadGEPC64Table(unmar, GEPC64table);
 	}
 
 	/**
