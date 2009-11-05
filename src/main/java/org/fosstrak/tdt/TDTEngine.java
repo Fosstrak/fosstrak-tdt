@@ -220,7 +220,7 @@ public class TDTEngine {
 	public TDTEngine(URL auxiliarydir, URL schemesdir) throws IOException,
 			JAXBException {
 		Unmarshaller unmar = getUnmarshaller();
-		URLConnection urlcon = schemes.openConnection();
+		URLConnection urlcon = schemesdir.openConnection();
 		urlcon.connect();
 		BufferedReader in = new BufferedReader(new InputStreamReader(urlcon
 				.getInputStream()));
