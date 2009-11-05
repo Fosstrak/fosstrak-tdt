@@ -120,8 +120,7 @@ public class TDTEngine {
 	 *            <p>
 	 *            When the class TDTEngine is constructed, the path to a local
 	 *            directory must be specified, by passing it as a single string
-	 *            parameter to the constructor method (without any trailing
-	 *            slash or file separator). e.g.
+	 *            parameter to the constructor method, e.g.
 	 *            <code><pre>TDTEngine engine = new TDTEngine("/opt/TDT");</pre></code>
 	 *            </p>
 	 *            <p>
@@ -143,22 +142,30 @@ public class TDTEngine {
 		
 		try {
 			Unmarshaller unmar = getUnmarshaller();
-			URL scheme = new URL(confdir + "/schemes/");
-			URL aux = new URL(confdir + "/auxiliary/ManagerTranslation.xml");
-			Set<URL> schemes = new HashSet<URL>();
-			schemes.add(scheme);
+			URL confdirurl;
+			if (confdir.endsWith("/")) {
+				confdirurl = new URL("file","localhost",confdir);
+			} else {
+				confdirurl = new URL("file","localhost",confdir+"/");
+			}
+
+			URL scheme = new URL(confdirurl,"schemes/");
+			URL auxGEPC64table = new URL(confdirurl,"auxiliary/ManagerTranslation.xml");
+
+			Set<String> schemes = new HashSet<String>();
+
 			URLConnection urlcon = scheme.openConnection();
 			urlcon.connect();
-			BufferedReader in = new BufferedReader(new InputStreamReader(urlcon
-					.getInputStream()));
+			BufferedReader in = new BufferedReader(new InputStreamReader(urlcon.getInputStream()));
 			String line;
 			for (; (line = in.readLine()) != null;) {
 				if (line.endsWith(".xml")) {
-					loadEpcTagDataTranslation(unmar, new URL(scheme.toString()
-							+ line));
+					URL defurl = new URL(scheme,line);
+					loadEpcTagDataTranslation(unmar, defurl);
+					schemes.add(line);
 				}
 			}
-			loadGEPC64Table(unmar, aux);
+			loadGEPC64Table(unmar, auxGEPC64table);
 		} catch (MalformedURLException e) {
 			throw new FileNotFoundException(e.getMessage());
 		} catch (IOException e) {
@@ -220,20 +227,35 @@ public class TDTEngine {
 	public TDTEngine(URL auxiliarydir, URL schemesdir) throws IOException,
 			JAXBException {
 		Unmarshaller unmar = getUnmarshaller();
-		URLConnection urlcon = schemesdir.openConnection();
-		urlcon.connect();
-		BufferedReader in = new BufferedReader(new InputStreamReader(urlcon
-				.getInputStream()));
-		String line;
-		for (; (line = in.readLine()) != null;) {
-			if (line.endsWith(".xml")) {
-				loadEpcTagDataTranslation(unmar, new URL(schemesdir.toString()
-						+ line));
-			}
+
+		if (!(auxiliarydir.toString().endsWith("/"))) {
+			// if a trailing slash was missing, append a trailing slash
+				auxiliarydir = new URL(auxiliarydir.toString()+"/");
 		}
-		URL GEPC64table = new URL(auxiliarydir, "ManagerTranslation.xml");
+		
+		if (!(schemesdir.toString().endsWith("/"))) {
+			// if a trailing slash was missing, append a trailing slash
+				schemesdir = new URL(schemesdir.toString()+"/");
+		}
+		
+		Set<String> requiredauxfiles = new HashSet<String>();
+		requiredauxfiles.add("ManagerTranslation.xml");
+
+		Set<String> schemes = new HashSet<String>();
+		
+		
+		Set<URL> schemeURLs = getschemeURLs(schemesdir,schemes);
+		for (URL defurl : schemeURLs) {
+			loadEpcTagDataTranslation(unmar, defurl);
+		}
+		
+		HashMap<String,URL> auxfileURLs = getauxiliaryURLs(auxiliarydir,requiredauxfiles);
+	
+		URL GEPC64table = auxfileURLs.get("ManagerTranslation.xml");
 		loadGEPC64Table(unmar, GEPC64table);
 	}
+
+
 
 	/**
 	 * Constructor for a new Tag Data Translation engine. All files are
@@ -242,7 +264,7 @@ public class TDTEngine {
 	 * @param auxiliarydir
 	 *            URL to the directory containing auxiliary files such as the GEPC64Table, 
 	 *					"ManagerTranslation.xml"
-	 * @param schemes
+	 * @param schemeslist
 	 *            set containing several urls pointing to directories containing
 	 *            the schemes. All files ending in xml are read and parsed.
 	 * @param absolute
@@ -252,27 +274,39 @@ public class TDTEngine {
 	 * @throws JAXBException
 	 *             thrown if the files could not be parsed
 	 */
-	public TDTEngine(URL auxiliarydir, Set<URL> schemes, boolean absolute)
-			throws JAXBException, IOException {
+	public TDTEngine(URL auxiliarydir, Set<URL> schemeslist, boolean absolute) throws JAXBException, IOException {
+	
 		Unmarshaller unmar = getUnmarshaller();
-		for (URL scheme : schemes) {
-			if (absolute) {
+		Set<String> schemes = new HashSet<String>();
+		
+		if (!(auxiliarydir.toString().endsWith("/"))) {
+			// if a trailing slash was missing, append a trailing slash
+				auxiliarydir = new URL(auxiliarydir.toString()+"/");
+		}
+		
+		if (absolute) {
+			for (URL scheme: schemeslist) {
 				loadEpcTagDataTranslation(unmar, scheme);
-				continue;
 			}
+		
+		
+		} else {
+			for (URL schemedir: schemeslist) {
 
-			URLConnection urlcon = scheme.openConnection();
-			urlcon.connect();
-			BufferedReader in = new BufferedReader(new InputStreamReader(urlcon
-					.getInputStream()));
-			String line;
-			for (; (line = in.readLine()) != null;) {
-				if (line.endsWith(".xml")) {
-					loadEpcTagDataTranslation(unmar, new URL(schemes.toString()
-							+ line));
+				// if the set<URL> schemes are not absolute URLs, then need to check for trailing slashes
+				if (!(schemedir.toString().endsWith("/"))) {
+					// if a trailing slash was missing, append a trailing slash
+						schemedir = new URL(schemedir.toString()+"/");
+				}
+								
+				Set<URL> schemeURLs = getschemeURLs(schemedir,schemes);
+				for (URL defurl : schemeURLs) {
+					loadEpcTagDataTranslation(unmar, defurl);
 				}
 			}
 		}
+
+
 		URL GEPC64table = new URL(auxiliarydir, "ManagerTranslation.xml");
 		loadGEPC64Table(unmar, GEPC64table);
 	}
@@ -335,6 +369,122 @@ public class TDTEngine {
 			gs1cpi.put(comp, indx);
 		}
 	}
+	
+		/**
+	 * Private method for obtaining a hashmap of URLs for named auxiliary files, whether in a file directory, web directory or web page
+	 * 
+	 * @param auxdirURL
+	 *            URL to the directory containing auxiliary files or web page linking to auxiliary files
+	 * @param requiredauxfiles
+	 *            Set of individual auxiliary files to be retrieved 
+	 * @return a hash map relating the name of the filename and its URL
+	 *
+	 * @throws IOException
+	 *             thrown if the url is unreachable
+	 */
+    private static HashMap<String,URL> getauxiliaryURLs(URL auxdirURL, Set<String> requiredauxfiles) {
+		
+		
+		HashMap<String, URL> foundauxfiles = new HashMap<String, URL>();
+		
+		String inputAuxLine;
+		
+		try {
+ 			URL parent = new URL(auxdirURL,".");
+						
+			String relauxiliary=auxdirURL.getFile();
+						
+            URLConnection urlconauxiliary = auxdirURL.openConnection();
+            BufferedReader dis2 = new BufferedReader(new InputStreamReader(urlconauxiliary.getInputStream()));
+			
+            while ((inputAuxLine = dis2.readLine()) != null) {
+				
+				for (String requestedfile: requiredauxfiles) {
+					if (requestedfile.endsWith(".xml")) {
+						String pattern = requestedfile.replaceAll("\\.","\\\\.").replaceAll("^","(").replaceAll("$",")").toString();
+						Pattern regex = Pattern.compile(pattern);
+						
+						
+						String pattern2 = requestedfile.replaceAll("\\.","\\\\.").replaceAll("^","href=['\"]([^ ]+?").replaceAll("$",")['\"]").toString();
+						Pattern regex2 = Pattern.compile(pattern2);
+						
+						// check if line includes filename.xml - if so, extract auxiliaryfile           
+						Matcher matcher2 = regex.matcher(inputAuxLine);
+						if (matcher2.find()) {
+							URL relURL = new URL(parent, matcher2.group(1));
+							foundauxfiles.put(requestedfile, relURL);
+						}
+						
+						// check if line includes href="filename.xml - if so, extract auxiliaryfile           
+						Matcher matcher3 = regex2.matcher(inputAuxLine);
+						if (matcher3.find()) {
+							URL relURL = new URL(parent, matcher3.group(1));
+							foundauxfiles.put(requestedfile, relURL);
+						}
+					}
+				}	
+			}
+			
+			dis2.close();
+			
+			
+        } catch (MalformedURLException me) {
+            System.out.println("MalformedURLException: " + me);
+        } catch (IOException ioe) {
+            System.out.println("IOException: " + ioe);
+        }
+		return foundauxfiles;    
+		
+    }
+    
+	/**
+	 * Private method for obtaining a set of URLs for TDT definition files, whether in a file directory, web directory or web page
+	 * 
+	 * @param schemesdirURL
+	 *            URL to the directory containing TDT definition files files or web page linking to TDT definition files
+	 * @return a list of URLs of TDT definition files contained within the directory or web page pointed to by the URL
+	 *
+	 * @throws IOException
+	 *             thrown if the url is unreachable
+	 */
+    private static Set<URL> getschemeURLs(URL schemesdirURL, Set<String> schemes) {
+        String inputSchemeLine;
+
+		Set<URL> schemeURLs = new HashSet<URL>();
+		try {
+ 			URL parent = new URL(schemesdirURL,".");
+
+			String relschemes=schemesdirURL.getFile();
+
+
+			
+            URLConnection urlconschemes = schemesdirURL.openConnection();
+            BufferedReader dis = new BufferedReader(new InputStreamReader(urlconschemes.getInputStream()));
+			
+            while ((inputSchemeLine = dis.readLine()) != null) {
+				// check if line includes filename.xml - if so, add to Set            
+				Matcher matcher = Pattern.compile("([A-Za-z0-9-_]+-[0-9*]+\\.xml)").matcher(inputSchemeLine);
+				if (matcher.find()) {
+					URL relURL = new URL(parent, matcher.group(0));
+					if (!matcher.group(0).contains("test")) {
+					schemeURLs.add(relURL);
+					schemes.add(matcher.group(0));
+					}
+
+ 				}
+			}
+            dis.close();
+        } catch (MalformedURLException me) {
+            System.out.println("MalformedURLException: " + me);
+        } catch (IOException ioe) {
+            System.out.println("IOException: " + ioe);
+        }
+		
+		return schemeURLs;
+    }
+
+
+
 
 	// -----------/
 	// - Methods -/
