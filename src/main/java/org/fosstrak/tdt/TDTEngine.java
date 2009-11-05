@@ -1257,6 +1257,108 @@ public class TDTEngine {
 			}
 			extraparams.put(newfieldname, buffer.toString());
 		}
+		
+		
+
+		/**
+		 * Adds specified parameters together. Unqouted strings are considered
+		 * as fieldnames and the corresponding value from the extraparams hashmap
+		 * are used in the calculation. 
+		 * The result of the addition is stored as a new entry in the extraparams
+		 * hashmap, keyed under the new fieldname specified by the rule.
+		 */
+		if (rulename.equalsIgnoreCase("add")) {
+			assert extraparams.get(parameter[0]) != null : tdtfunction + " when " + parameter[0] + " is null";
+
+			if ((extraparams.get(parameter[0]) != null) && (parameter[1] != null) && (parameter.length == 2)) {
+			
+				int initialvalue = getIntValue(parameter[0], extraparams);
+				int increment = Integer.parseInt(parameter[1]);
+				extraparams.put(newfieldname, Integer.toString(initialvalue+increment));
+			}
+		}
+
+
+
+		/**
+		 * Multiplies the specified parameters together. 
+		 * Unquoted strings are considered as fieldnames and the corresponding
+		 * value from the extraparams hashmap are used in the calculation. 
+		 * The result of the multiplication is stored as a new entry in the 
+		 * extraparams hashmap, keyed under the new fieldname specified by the rule.
+		 */
+		if (rulename.equalsIgnoreCase("multiply")) {
+			assert extraparams.get(parameter[0]) != null : tdtfunction + " when " + parameter[0] + " is null";
+
+			if ((extraparams.get(parameter[0]) != null) && (parameter[1] != null) && (parameter.length == 2)) {
+			
+				int initialvalue = getIntValue(parameter[0], extraparams);
+				int factor = Integer.parseInt(parameter[1]);
+				extraparams.put(newfieldname, Integer.toString(initialvalue*factor));
+			}
+		}
+
+
+		/**
+		 * Divides the first parameter by the second parameter. 
+		 * Unquoted strings are considered as fieldnames and the corresponding 
+		 * value from the extraparams hashmap are used in the calculation. 
+		 * The result of the division is stored as a new entry in the 
+		 * extraparams hashmap, keyed under the new fieldname specified by the rule.
+		 */
+		if (rulename.equalsIgnoreCase("divide")) {
+			assert extraparams.get(parameter[0]) != null : tdtfunction + " when " + parameter[0] + " is null";
+
+			if ((extraparams.get(parameter[0]) != null) && (parameter[1] != null) && (parameter.length == 2)) {
+			
+				int initialvalue = getIntValue(parameter[0], extraparams);
+				int divisor = Integer.parseInt(parameter[1]);
+				extraparams.put(newfieldname, Integer.toString(initialvalue*divisor));
+			}
+		}
+
+		/**
+		 * Subtracts the second parameter from the first parameter. 
+		 * Unquoted strings are considered as fieldnames and the corresponding 
+		 * value from the extraparams hashmap are used in the calculation. 
+		 * The result of the subtraction is stored as a new entry 
+		 * in the extraparams hashmap, keyed under the new fieldname specified
+		 * by the rule.
+		 */
+		if (rulename.equalsIgnoreCase("subtract")) {
+			assert extraparams.get(parameter[0]) != null : tdtfunction + " when " + parameter[0] + " is null";
+
+			if ((extraparams.get(parameter[0]) != null) && (parameter[1] != null) && (parameter.length == 2)) {
+			
+				int initialvalue = getIntValue(parameter[0], extraparams);
+				int decrement = Integer.parseInt(parameter[1]);
+				extraparams.put(newfieldname, Integer.toString(initialvalue-decrement));
+			}
+		}
+
+
+		/**
+		 * Returns the remainder after integer division of the first parameter
+		 * divided by the second parameter. 
+		 * Unquoted strings are considered as fieldnames and the corresponding 
+		 * value from the extraparams hashmap are used in the calculation. 
+		 * The remainder after integer division is stored as a new entry 
+		 * in the extraparams hashmap, keyed under the new fieldname specified
+		 * by the rule.
+		 */
+		if (rulename.equalsIgnoreCase("mod")) {
+			assert extraparams.get(parameter[0]) != null : tdtfunction + " when " + parameter[0] + " is null";
+
+			if ((extraparams.get(parameter[0]) != null) && (parameter[1] != null) && (parameter.length == 2)) {
+			
+				int initialvalue = getIntValue(parameter[0], extraparams);
+				int divisor = Integer.parseInt(parameter[1]);
+				extraparams.put(newfieldname, Integer.toString(initialvalue % divisor));
+			}
+		}
+
+		
+		
 	}
 
 	/**
