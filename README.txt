@@ -16,7 +16,7 @@ within the software.  The authors strive to make the tool as reliable
 and useful as possible and welcome all feedback and notification about
 deficiencies, errors or problems.
 
-Please e-mail mark.harrison@cantab.net to provide feedback.
+Please e-mail mark.harrison@cantab.net to provide feedback .
 
 
 
