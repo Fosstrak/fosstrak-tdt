@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tdt:epcTagDataTranslation version="1.4" date="2009-06-16T10:57:00Z" epcTDSVersion="1.4" xmlns:tdt="urn:epcglobal:tdt:xsd:1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:epcglobal:tdt:xsd:1 EpcTagDataTranslation.xsd">
+<tdt:epcTagDataTranslation version="1.6" date="2011-01-20T12:21:00Z" epcTDSVersion="1.6" xmlns:tdt="urn:epcglobal:tdt:xsd:1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:epcglobal:tdt:xsd:1 EpcTagDataTranslation.xsd">
 	<scheme name="GIAI-202" optionKey="gs1companyprefixlength" tagLength="202">
 		<level type="BINARY" prefixMatch="00111000" requiredFormattingParameters="filter,taglength">
 			<option optionKey="12" pattern="00111000([01]{3})000([01]{40})([01]{148})" grammar="'00111000' filter '000' gs1companyprefix indassetref">
@@ -39,130 +39,183 @@
 			</option>
 		</level>
 		<level type="TAG_ENCODING" prefixMatch="urn:epc:tag:giai-202" requiredFormattingParameters="filter,taglength">
-			<option optionKey="12" pattern="urn:epc:tag:giai-202:([0-7]{1})\.([0-9]{12})\.([!%-?A-Z_a-z \x22]{1,18})" grammar="'urn:epc:tag:giai-202:' filter '.' gs1companyprefix '.' indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="7" characterSet="[0-7]*" length="1" name="filter"/>
+			<option optionKey="12" pattern="urn:epc:tag:giai-202:([0-7]{1})\.([0-9]{12})\.([!%-?A-Z_a-z\x22]{1,18})" grammar="'urn:epc:tag:giai-202:' filter '.' gs1companyprefix '.' indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="7" characterSet="[0-7]*" length="1" padChar="0" padDir="LEFT" name="filter"/>
 				<field seq="2" decimalMinimum="0" decimalMaximum="999999999999" characterSet="[0-9]*" length="12" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
-				<field seq="3" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+				<field seq="3" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="11" pattern="urn:epc:tag:giai-202:([0-7]{1})\.([0-9]{11})\.([!%-?A-Z_a-z \x22]{1,19})" grammar="'urn:epc:tag:giai-202:' filter '.' gs1companyprefix '.' indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="7" characterSet="[0-7]*" length="1" name="filter"/>
+			<option optionKey="11" pattern="urn:epc:tag:giai-202:([0-7]{1})\.([0-9]{11})\.([!%-?A-Z_a-z\x22]{1,19})" grammar="'urn:epc:tag:giai-202:' filter '.' gs1companyprefix '.' indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="7" characterSet="[0-7]*" length="1" padChar="0" padDir="LEFT" name="filter"/>
 				<field seq="2" decimalMinimum="0" decimalMaximum="99999999999" characterSet="[0-9]*" length="11" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
-				<field seq="3" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+				<field seq="3" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="10" pattern="urn:epc:tag:giai-202:([0-7]{1})\.([0-9]{10})\.([!%-?A-Z_a-z \x22]{1,20})" grammar="'urn:epc:tag:giai-202:' filter '.' gs1companyprefix '.' indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="7" characterSet="[0-7]*" length="1" name="filter"/>
+			<option optionKey="10" pattern="urn:epc:tag:giai-202:([0-7]{1})\.([0-9]{10})\.([!%-?A-Z_a-z\x22]{1,20})" grammar="'urn:epc:tag:giai-202:' filter '.' gs1companyprefix '.' indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="7" characterSet="[0-7]*" length="1" padChar="0" padDir="LEFT" name="filter"/>
 				<field seq="2" decimalMinimum="0" decimalMaximum="9999999999" characterSet="[0-9]*" length="10" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
-				<field seq="3" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+				<field seq="3" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="9" pattern="urn:epc:tag:giai-202:([0-7]{1})\.([0-9]{9})\.([!%-?A-Z_a-z \x22]{1,21})" grammar="'urn:epc:tag:giai-202:' filter '.' gs1companyprefix '.' indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="7" characterSet="[0-7]*" length="1" name="filter"/>
+			<option optionKey="9" pattern="urn:epc:tag:giai-202:([0-7]{1})\.([0-9]{9})\.([!%-?A-Z_a-z\x22]{1,21})" grammar="'urn:epc:tag:giai-202:' filter '.' gs1companyprefix '.' indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="7" characterSet="[0-7]*" length="1" padChar="0" padDir="LEFT" name="filter"/>
 				<field seq="2" decimalMinimum="0" decimalMaximum="999999999" characterSet="[0-9]*" length="9" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
-				<field seq="3" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+				<field seq="3" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="8" pattern="urn:epc:tag:giai-202:([0-7]{1})\.([0-9]{8})\.([!%-?A-Z_a-z \x22]{1,22})" grammar="'urn:epc:tag:giai-202:' filter '.' gs1companyprefix '.' indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="7" characterSet="[0-7]*" length="1" name="filter"/>
+			<option optionKey="8" pattern="urn:epc:tag:giai-202:([0-7]{1})\.([0-9]{8})\.([!%-?A-Z_a-z\x22]{1,22})" grammar="'urn:epc:tag:giai-202:' filter '.' gs1companyprefix '.' indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="7" characterSet="[0-7]*" length="1" padChar="0" padDir="LEFT" name="filter"/>
 				<field seq="2" decimalMinimum="0" decimalMaximum="99999999" characterSet="[0-9]*" length="8" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
-				<field seq="3" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+				<field seq="3" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="7" pattern="urn:epc:tag:giai-202:([0-7]{1})\.([0-9]{7})\.([!%-?A-Z_a-z \x22]{1,23})" grammar="'urn:epc:tag:giai-202:' filter '.' gs1companyprefix '.' indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="7" characterSet="[0-7]*" length="1" name="filter"/>
+			<option optionKey="7" pattern="urn:epc:tag:giai-202:([0-7]{1})\.([0-9]{7})\.([!%-?A-Z_a-z\x22]{1,23})" grammar="'urn:epc:tag:giai-202:' filter '.' gs1companyprefix '.' indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="7" characterSet="[0-7]*" length="1" padChar="0" padDir="LEFT" name="filter"/>
 				<field seq="2" decimalMinimum="0" decimalMaximum="9999999" characterSet="[0-9]*" length="7" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
-				<field seq="3" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+				<field seq="3" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="6" pattern="urn:epc:tag:giai-202:([0-7]{1})\.([0-9]{6})\.([!%-?A-Z_a-z \x22]{1,24})" grammar="'urn:epc:tag:giai-202:' filter '.' gs1companyprefix '.' indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="7" characterSet="[0-7]*" length="1" name="filter"/>
+			<option optionKey="6" pattern="urn:epc:tag:giai-202:([0-7]{1})\.([0-9]{6})\.([!%-?A-Z_a-z\x22]{1,24})" grammar="'urn:epc:tag:giai-202:' filter '.' gs1companyprefix '.' indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="7" characterSet="[0-7]*" length="1" padChar="0" padDir="LEFT" name="filter"/>
 				<field seq="2" decimalMinimum="0" decimalMaximum="999999" characterSet="[0-9]*" length="6" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
-				<field seq="3" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+				<field seq="3" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
 		</level>
 		<level type="PURE_IDENTITY" prefixMatch="urn:epc:id:giai">
-			<option optionKey="12" pattern="urn:epc:id:giai:([0-9]{12})\.([!%-?A-Z_a-z \x22]{1,18})" grammar="'urn:epc:id:giai:' gs1companyprefix '.' indassetref">
+			<option optionKey="12" pattern="urn:epc:id:giai:([0-9]{12})\.([!%-?A-Z_a-z\x22]{1,18})" grammar="'urn:epc:id:giai:' gs1companyprefix '.' indassetref">
 				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999" characterSet="[0-9]*" length="12" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="11" pattern="urn:epc:id:giai:([0-9]{11})\.([!%-?A-Z_a-z \x22]{1,19})" grammar="'urn:epc:id:giai:' gs1companyprefix '.' indassetref">
+			<option optionKey="11" pattern="urn:epc:id:giai:([0-9]{11})\.([!%-?A-Z_a-z\x22]{1,19})" grammar="'urn:epc:id:giai:' gs1companyprefix '.' indassetref">
 				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999" characterSet="[0-9]*" length="11" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="10" pattern="urn:epc:id:giai:([0-9]{10})\.([!%-?A-Z_a-z \x22]{1,20})" grammar="'urn:epc:id:giai:' gs1companyprefix '.' indassetref">
+			<option optionKey="10" pattern="urn:epc:id:giai:([0-9]{10})\.([!%-?A-Z_a-z\x22]{1,20})" grammar="'urn:epc:id:giai:' gs1companyprefix '.' indassetref">
 				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999" characterSet="[0-9]*" length="10" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="9" pattern="urn:epc:id:giai:([0-9]{9})\.([!%-?A-Z_a-z \x22]{1,21})" grammar="'urn:epc:id:giai:' gs1companyprefix '.' indassetref">
+			<option optionKey="9" pattern="urn:epc:id:giai:([0-9]{9})\.([!%-?A-Z_a-z\x22]{1,21})" grammar="'urn:epc:id:giai:' gs1companyprefix '.' indassetref">
 				<field seq="1" decimalMinimum="0" decimalMaximum="999999999" characterSet="[0-9]*" length="9" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="8" pattern="urn:epc:id:giai:([0-9]{8})\.([!%-?A-Z_a-z \x22]{1,22})" grammar="'urn:epc:id:giai:' gs1companyprefix '.' indassetref">
+			<option optionKey="8" pattern="urn:epc:id:giai:([0-9]{8})\.([!%-?A-Z_a-z\x22]{1,22})" grammar="'urn:epc:id:giai:' gs1companyprefix '.' indassetref">
 				<field seq="1" decimalMinimum="0" decimalMaximum="99999999" characterSet="[0-9]*" length="8" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="7" pattern="urn:epc:id:giai:([0-9]{7})\.([!%-?A-Z_a-z \x22]{1,23})" grammar="'urn:epc:id:giai:' gs1companyprefix '.' indassetref">
+			<option optionKey="7" pattern="urn:epc:id:giai:([0-9]{7})\.([!%-?A-Z_a-z\x22]{1,23})" grammar="'urn:epc:id:giai:' gs1companyprefix '.' indassetref">
 				<field seq="1" decimalMinimum="0" decimalMaximum="9999999" characterSet="[0-9]*" length="7" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="6" pattern="urn:epc:id:giai:([0-9]{6})\.([!%-?A-Z_a-z \x22]{1,24})" grammar="'urn:epc:id:giai:' gs1companyprefix '.' indassetref">
+			<option optionKey="6" pattern="urn:epc:id:giai:([0-9]{6})\.([!%-?A-Z_a-z\x22]{1,24})" grammar="'urn:epc:id:giai:' gs1companyprefix '.' indassetref">
 				<field seq="1" decimalMinimum="0" decimalMaximum="999999" characterSet="[0-9]*" length="6" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
 		</level>
 		<level type="LEGACY" prefixMatch="giai=" requiredParsingParameters="gs1companyprefixlength">
-			<option optionKey="12" pattern="giai=([0-9]{12}([!%-?A-Z_a-z \x22]{1,18})" grammar="'giai=' gs1companyprefix indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999" characterSet="[0-9]*" length="12" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+			<option optionKey="12" pattern="giai=([0-9]{12}([!%-?A-Z_a-z\x22]{1,18})" grammar="'giai=' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999" characterSet="[0-9]*" length="12" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="11" pattern="giai=([0-9]{11}([!%-?A-Z_a-z \x22]{1,19})" grammar="'giai=' gs1companyprefix indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999" characterSet="[0-9]*" length="11" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+			<option optionKey="11" pattern="giai=([0-9]{11}([!%-?A-Z_a-z\x22]{1,19})" grammar="'giai=' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999" characterSet="[0-9]*" length="11" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="10" pattern="giai=([0-9]{10}([!%-?A-Z_a-z \x22]{1,20})" grammar="'giai=' gs1companyprefix indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999" characterSet="[0-9]*" length="10" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+			<option optionKey="10" pattern="giai=([0-9]{10}([!%-?A-Z_a-z\x22]{1,20})" grammar="'giai=' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999" characterSet="[0-9]*" length="10" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="9" pattern="giai=([0-9]{9}([!%-?A-Z_a-z \x22]{1,21})" grammar="'giai=' gs1companyprefix indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="999999999" characterSet="[0-9]*" length="9" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+			<option optionKey="9" pattern="giai=([0-9]{9}([!%-?A-Z_a-z\x22]{1,21})" grammar="'giai=' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999" characterSet="[0-9]*" length="9" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="8" pattern="giai=([0-9]{8}([!%-?A-Z_a-z \x22]{1,22})" grammar="'giai=' gs1companyprefix indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="99999999" characterSet="[0-9]*" length="8" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+			<option optionKey="8" pattern="giai=([0-9]{8}([!%-?A-Z_a-z\x22]{1,22})" grammar="'giai=' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="99999999" characterSet="[0-9]*" length="8" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="7" pattern="giai=([0-9]{7}([!%-?A-Z_a-z \x22]{1,23})" grammar="'giai=' gs1companyprefix indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="9999999" characterSet="[0-9]*" length="7" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+			<option optionKey="7" pattern="giai=([0-9]{7}([!%-?A-Z_a-z\x22]{1,23})" grammar="'giai=' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999" characterSet="[0-9]*" length="7" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="6" pattern="giai=([0-9]{6}([!%-?A-Z_a-z \x22]{1,24})" grammar="'giai=' gs1companyprefix indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="999999" characterSet="[0-9]*" length="6" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+			<option optionKey="6" pattern="giai=([0-9]{6}([!%-?A-Z_a-z\x22]{1,24})" grammar="'giai=' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999" characterSet="[0-9]*" length="6" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
 		</level>
 		<level type="LEGACY_AI" prefixMatch="(8004)" requiredParsingParameters="gs1companyprefixlength">
-			<option optionKey="12" pattern="\(8004\)([0-9]{12}([!%-?A-Z_a-z \x22]{1,18})" grammar="'(8004)' gs1companyprefix indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999" characterSet="[0-9]*" length="12" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+			<option optionKey="12" pattern="\(8004\)([0-9]{12}([!%-?A-Z_a-z\x22]{1,18})" grammar="'(8004)' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999" characterSet="[0-9]*" length="12" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="11" pattern="\(8004\)([0-9]{11}([!%-?A-Z_a-z \x22]{1,19})" grammar="'(8004)' gs1companyprefix indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999" characterSet="[0-9]*" length="11" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+			<option optionKey="11" pattern="\(8004\)([0-9]{11}([!%-?A-Z_a-z\x22]{1,19})" grammar="'(8004)' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999" characterSet="[0-9]*" length="11" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="10" pattern="\(8004\)([0-9]{10}([!%-?A-Z_a-z \x22]{1,20})" grammar="'(8004)' gs1companyprefix indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999" characterSet="[0-9]*" length="10" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+			<option optionKey="10" pattern="\(8004\)([0-9]{10}([!%-?A-Z_a-z\x22]{1,20})" grammar="'(8004)' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999" characterSet="[0-9]*" length="10" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="9" pattern="\(8004\)([0-9]{9}([!%-?A-Z_a-z \x22]{1,21})" grammar="'(8004)' gs1companyprefix indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="999999999" characterSet="[0-9]*" length="9" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+			<option optionKey="9" pattern="\(8004\)([0-9]{9}([!%-?A-Z_a-z\x22]{1,21})" grammar="'(8004)' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999" characterSet="[0-9]*" length="9" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="8" pattern="\(8004\)([0-9]{8}([!%-?A-Z_a-z \x22]{1,22})" grammar="'(8004)' gs1companyprefix indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="99999999" characterSet="[0-9]*" length="8" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+			<option optionKey="8" pattern="\(8004\)([0-9]{8}([!%-?A-Z_a-z\x22]{1,22})" grammar="'(8004)' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="99999999" characterSet="[0-9]*" length="8" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="7" pattern="\(8004\)([0-9]{7}([!%-?A-Z_a-z \x22]{1,23})" grammar="'(8004)' gs1companyprefix indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="9999999" characterSet="[0-9]*" length="7" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+			<option optionKey="7" pattern="\(8004\)([0-9]{7}([!%-?A-Z_a-z\x22]{1,23})" grammar="'(8004)' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999" characterSet="[0-9]*" length="7" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="6" pattern="\(8004\)([0-9]{6}([!%-?A-Z_a-z \x22]{1,24})" grammar="'(8004)' gs1companyprefix indassetref">
-				<field seq="1" decimalMinimum="0" decimalMaximum="999999" characterSet="[0-9]*" length="6" name="gs1companyprefix"/>
-				<field seq="2" characterSet="[!%-?A-Z_a-z \x22]*" name="indassetref"/>
+			<option optionKey="6" pattern="\(8004\)([0-9]{6}([!%-?A-Z_a-z\x22]{1,24})" grammar="'(8004)' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999" characterSet="[0-9]*" length="6" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
+			</option>
+		</level>
+		<level type="ELEMENT_STRING" prefixMatch="8004" requiredParsingParameters="gs1companyprefixlength">
+			<option optionKey="12" pattern="8004([0-9]{12}([!%-?A-Z_a-z\x22]{1,18})" grammar="'8004' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999" characterSet="[0-9]*" length="12" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
+			</option>
+			<option optionKey="11" pattern="8004([0-9]{11}([!%-?A-Z_a-z\x22]{1,19})" grammar="'8004' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999" characterSet="[0-9]*" length="11" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
+			</option>
+			<option optionKey="10" pattern="8004([0-9]{10}([!%-?A-Z_a-z\x22]{1,20})" grammar="'8004' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999" characterSet="[0-9]*" length="10" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
+			</option>
+			<option optionKey="9" pattern="8004([0-9]{9}([!%-?A-Z_a-z\x22]{1,21})" grammar="'8004' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999" characterSet="[0-9]*" length="9" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
+			</option>
+			<option optionKey="8" pattern="8004([0-9]{8}([!%-?A-Z_a-z\x22]{1,22})" grammar="'8004' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="99999999" characterSet="[0-9]*" length="8" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
+			</option>
+			<option optionKey="7" pattern="8004([0-9]{7}([!%-?A-Z_a-z\x22]{1,23})" grammar="'8004' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999" characterSet="[0-9]*" length="7" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
+			</option>
+			<option optionKey="6" pattern="8004([0-9]{6}([!%-?A-Z_a-z\x22]{1,24})" grammar="'8004' gs1companyprefix indassetref">
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999" characterSet="[0-9]*" length="6" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
+			</option>
+		</level>
+		<level type="ONS_HOSTNAME">
+			<option optionKey="12" grammar="gs1companyprefix '.giai.id.onsepc.com'">
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999" characterSet="[0-9]*" length="12" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+			</option>
+			<option optionKey="11" grammar="gs1companyprefix '.giai.id.onsepc.com'">
+				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999" characterSet="[0-9]*" length="11" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+			</option>
+			<option optionKey="10" grammar="gs1companyprefix '.giai.id.onsepc.com'">
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999" characterSet="[0-9]*" length="10" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+			</option>
+			<option optionKey="9" grammar="gs1companyprefix '.giai.id.onsepc.com'">
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999999" characterSet="[0-9]*" length="9" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+			</option>
+			<option optionKey="8" grammar="gs1companyprefix '.giai.id.onsepc.com'">
+				<field seq="1" decimalMinimum="0" decimalMaximum="99999999" characterSet="[0-9]*" length="8" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+			</option>
+			<option optionKey="7" grammar="gs1companyprefix '.giai.id.onsepc.com'">
+				<field seq="1" decimalMinimum="0" decimalMaximum="9999999" characterSet="[0-9]*" length="7" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+			</option>
+			<option optionKey="6" grammar="gs1companyprefix '.giai.id.onsepc.com'">
+				<field seq="1" decimalMinimum="0" decimalMaximum="999999" characterSet="[0-9]*" length="6" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
 			</option>
 		</level>
 	</scheme>
