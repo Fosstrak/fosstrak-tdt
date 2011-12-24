@@ -537,6 +537,7 @@ public class TDTEngine {
 						prefix_tree_map.put(level.getType(), prefix_tree);
 					}
 					prefix_tree.insert(s, new PrefixMatch(ss, level));
+					debugprintln("Insert into prefix_tree Prefix: "+s+" : Scheme="+ss.getName()+" ; TagLength="+level.getType());
 				}
 			}
 
@@ -605,11 +606,33 @@ public class TDTEngine {
 
 
 		if (match_list.isEmpty()) {
-			debugprintln("***EXCEPTION: No schemes or levels matched the input value");
+			debugprintln("***EXCEPTION: No schemes or levels matched the input value (line 608)");
 			throw new TDTException("No schemes or levels matched the input value");
 		} else if (match_list.size() > 1) {
-			debugprintln("***EXCEPTION: More than one scheme/level matched the input value");
-			throw new TDTException("More than one scheme/level matched the input value");
+			debugprintln("***EXCEPTION: More than one scheme/level matched the input value (line 611)");
+			int patternmatchcount=0;
+			int matchingindex=-1;
+			int currentindex=0;
+			for (PrefixMatch cand : match_list) {
+			boolean patternmatch=false;
+			for (Option candopt : cand.getLevel().getOption()) {
+			Matcher matcher = Pattern.compile("^"+candopt.getPattern()+"$").matcher(input);
+			  if (matcher.lookingAt()) {
+			  	patternmatch=true;
+			  }
+			}
+			if (patternmatch) {
+			  	matchingindex=currentindex;
+			  	patternmatchcount++;
+			}
+			currentindex++;
+			}
+			if ((patternmatchcount == 1) && (matchingindex > -1)) {
+			debugprintln("Returning "+match_list.get(matchingindex).getScheme().getName()+" with level "+match_list.get(matchingindex).getLevel().getType()+" and setting tagLength to "+realTagLength);
+			return new PrefixMatch2(match_list.get(matchingindex).getScheme(),match_list.get(matchingindex).getLevel(),Integer.toString(realTagLength));
+			} else {
+			throw new TDTException("More than one scheme/level matched the input value even at pattern level");
+			}
 		} else {
 			debugprintln("Returning "+match_list.get(0).getScheme().getName()+" with level "+match_list.get(0).getLevel().getType()+" and setting tagLength to "+realTagLength);
 			return new PrefixMatch2(match_list.get(0).getScheme(),match_list.get(0).getLevel(),Integer.toString(realTagLength));
@@ -654,11 +677,33 @@ public class TDTEngine {
 		
 		
 		if (match_list.isEmpty()) {
-			debugprintln("***EXCPETION: No schemes or levels matched the input value");
+			debugprintln("***EXCPETION: No schemes or levels matched the input value (line 679)");
 			throw new TDTException("No schemes or levels matched the input value");
 		} else if (match_list.size() > 1) {
-			debugprintln("***EXCEPTION: More than one scheme/level matched the input value");
-			throw new TDTException("More than one scheme/level matched the input value");
+			debugprintln("***EXCEPTION: More than one scheme/level matched the input value (line 682)");
+			int patternmatchcount=0;
+			int matchingindex=-1;
+			int currentindex=0;
+			for (PrefixMatch cand : match_list) {
+			boolean patternmatch=false;
+			for (Option candopt : cand.getLevel().getOption()) {
+			Matcher matcher = Pattern.compile("^"+candopt.getPattern()+"$").matcher(input);
+			  if (matcher.lookingAt()) {
+			  	patternmatch=true;
+			  }
+			}
+			if (patternmatch) {
+			  	matchingindex=currentindex;
+			  	patternmatchcount++;
+			}
+			currentindex++;
+			}
+			if ((patternmatchcount == 1) && (matchingindex > -1)) {
+			debugprintln("Returning "+match_list.get(matchingindex).getScheme().getName()+" with level "+match_list.get(matchingindex).getLevel().getType()+" and setting tagLength to "+realTagLength);
+			return new PrefixMatch2(match_list.get(matchingindex).getScheme(),match_list.get(matchingindex).getLevel(),Integer.toString(realTagLength));
+			} else {
+			throw new TDTException("More than one scheme/level matched the input value even at pattern level");
+			}
 		} else {
 			return new PrefixMatch2(match_list.get(0).getScheme(),match_list.get(0).getLevel(),Integer.toString(realTagLength));
 		}
@@ -706,6 +751,9 @@ public class TDTEngine {
 		}
 		debugprintln("End of inputParameters");
 
+		if (input.startsWith("urn:epc:")) {
+		input = uriunescape(input);
+		}
 
 		PrefixMatch2 matchtemp = findPrefixMatch(input, tagLength, inputLevel);
 		PrefixMatch match = new PrefixMatch(matchtemp.getScheme(),matchtemp.getLevel());
@@ -775,6 +823,10 @@ public class TDTEngine {
 			debugprintln("taglength was provided.  tagLength = "+s);
 		}
 
+		if (input.startsWith("urn:epc:")) {
+		input = uriunescape(input);
+		}
+
 		PrefixMatch2 matchtemp = findPrefixMatch(input, tagLength);
 		
 		PrefixMatch match = new PrefixMatch(matchtemp.getScheme(),matchtemp.getLevel());
@@ -789,23 +841,10 @@ public class TDTEngine {
 		
 		// if a URI is supplied, remember to perform URL decoding on it before passing it to the convertLevel() method
 		
-		if ((match.getLevel().getType()==LevelTypeList.TAG_ENCODING) || (match.getLevel().getType()==LevelTypeList.PURE_IDENTITY)) {
-			try {
-			decodedinput=URLDecoder.decode(input.replaceAll("\\+","%2B"),"UTF-8");
-			} catch (UnsupportedEncodingException e) {
-			decodedinput=input;
-			System.out.println("UnsupportedEncodingException: " + e);
-			}
-		} else {
-			decodedinput=input;
-		}
-
-		debugprintln("(line 803) input = "+input);
-		debugprintln("(line 804) decodedinput = "+decodedinput);
 		
 		// if a URI is returned, remember to perform URL encoding on it before returning it as output
 		
-		return convertLevel(match.getScheme(), match.getLevel(), decodedinput, inputParameters, outputLevel);
+		return convertLevel(match.getScheme(), match.getLevel(), input, inputParameters, outputLevel);
 				
 				
 	}
@@ -1327,6 +1366,8 @@ public class TDTEngine {
 // *** need to do check min/max just before building grammar - not earlier
 // *** may need to pass additional fields into buildGrammar in order to do this
 
+// *** logic is flawed here.  We cannot test for fields that do not appear in the grammar string
+// *** instead we need to extract these from the grammar string and check against constraints expressed in either the rules of type="FORMAT" or the field in tdtoutoption.
 		
 		for (Field testfield : tdtoutoption.getField()) {
 		String testfieldname = testfield.getName();
@@ -1545,30 +1586,6 @@ return rawhex.toString();
 }
 
 
-private String escapehex(String s) {
-String r;
-try {
-r=URLEncoder.encode(s,"UTF-8").replaceAll("\\+","%20");
-r=r.replaceAll("%21","!");
-r=r.replaceAll("%27","'");
-r=r.replaceAll("%28","(");
-r=r.replaceAll("%29",")");
-r=r.replaceAll("%2A","*");
-r=r.replaceAll("%2B","+");
-r=r.replaceAll("%2C",",");
-r=r.replaceAll("%2D","-");
-r=r.replaceAll("%2E",".");
-r=r.replaceAll("%3A",":");
-r=r.replaceAll("%3B",";");
-r=r.replaceAll("%3D","=");
-r=r.replaceAll("%5F","_");
-} catch (UnsupportedEncodingException e) {
-r=null;
-System.out.println("UnsupportedEncodingException: " + e);
-}
-return r;
-}
-
 
 
 	/**
@@ -1587,7 +1604,7 @@ return r;
 			} else {
 				if ((outboundlevel == LevelTypeList.TAG_ENCODING) || (outboundlevel == LevelTypeList.PURE_IDENTITY)) {
 					
-					formattedparam = escapehex(extraparams.get(fields[i]));
+					formattedparam = uriescape(extraparams.get(fields[i]));
 		debugprintln("(line 1484) param = "+extraparams.get(fields[i]));
 		debugprintln("(line 1485) formattedparam = "+formattedparam);
 					
@@ -2215,6 +2232,43 @@ return r;
 	}
 
 	// auxiliary functions
+
+	/**
+	 * 
+	 * Converts original characters into URI escape sequences where required
+	 */
+   private static String uriescape(String in) {
+	in = in.replaceAll("%","%25");
+   	in = in.replaceAll("\\?","%3F");
+   	in = in.replaceAll("\"","%22");
+   	in = in.replaceAll("&","%26");
+   	in = in.replaceAll("/","%2F");
+   	in = in.replaceAll("<","%3C");
+   	in = in.replaceAll(">","%3E");
+   	in = in.replaceAll("#","%23");   
+    return in;
+   }
+
+
+	/**
+	 * 
+	 * Converts URI escaped characters back into original characters
+	 */
+   private static String uriunescape(String in) {
+	in = in.replaceAll("%25","%");
+   	in = in.replaceAll("%3[Ff]","?");
+   	in = in.replaceAll("%22","\\");
+   	in = in.replaceAll("%26","&");
+   	in = in.replaceAll("%2[Ff]","/");
+   	in = in.replaceAll("%3[Cc]","<");
+   	in = in.replaceAll("%3[Ee]",">");
+   	in = in.replaceAll("%23","#");   
+    return in;
+   }
+
+
+
+
 
 	/**
 	 * 
