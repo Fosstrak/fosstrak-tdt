@@ -3,6 +3,16 @@
         <title>Changelog Fosstrak TDT Engine</title>
     </properties>
     <body>
+        <release version="1.0.0" date="2012-02-01" description="Feature Release">
+            <action dev="floerkem" type="add" due-to="Mark Harrison">
+                Upgrade to TDT Specification 1.6
+            </action>
+            <action dev="floerkem" type="add" due-to="Mark Harrison">
+                Updates to TDTEngine.java to better handle escaped characters in URIs as well as situations where multiple prefixMatch values appear to match 
+                (the problem was introduced because bare 00 and 01 in ELEMENT_STRING level match any header beginning with 00 or 01, so in these situations we now need to examine the pattern regexes to determine which scheme and level
+                actually matches the regex)
+            </action>
+        </release>
 	    <release version="0.9.0" date="2009-06-03" description="Feature Release">
             <action dev="floerkem" type="add" due-to="Jochen Mader">
                 Added support for loading TDT translation schemes from a URL.
