@@ -13,7 +13,23 @@
    <properties> 
      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> 
    </properties> 
-
+   <description>Tag Data Translation Engine - implements EPCglobal TDT Spec</description>
+   <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+   </parent>  
+    
+    <developers>
+        <developer>
+            <id>1</id>
+            <name>Mark Harrison</name>
+        </developer>
+        <developer>
+            <id>2</id>
+            <name>Christian Floerkemeier</name>
+        </developer>
+    </developers>   
 
   <!-- =========================================================== -->
   <!-- Dependencies                                                -->
@@ -55,25 +71,6 @@
   <!-- =========================================================== -->
   
   <repositories>
-    <repository>
-      <id>java.net</id>
-      <url>https://maven-repository.dev.java.net/repository</url>
-      <layout>legacy</layout>
-    </repository>
-    <repository>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>daily</updatePolicy>
-        <checksumPolicy>warn</checksumPolicy>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>fosstrak-repository</id>
-      <name>Fosstrak repository</name>
-      <url>http://maven-repository.fosstrak.org/releases</url>
-      <layout>default</layout>
-    </repository>
 	<repository>
       <id>aduna-software</id>
       <url>http://repository.aduna-software.org/maven2</url>
@@ -86,42 +83,12 @@
   <!-- Infrastructure                                              -->
   <!-- =========================================================== -->
 
-  <scm>
-    <!-- keep empty tags here to avoid release:prepare crashes -->
-    <connection></connection>
-    <developerConnection>scm:svn:https://svn.fosstrak.org/repos/tdt/trunk</developerConnection>
-    <url></url>
-  </scm>
-  <distributionManagement>
-    <repository>
-      <id>fosstrak-repository</id>
-      <name>Fosstrak repository</name>
-      <url>sftp://maven-repository.fosstrak.org/local/home/fosstrakrep/public_html/releases</url>
-    </repository>
-    <snapshotRepository>
-      <id>fosstrak-repository</id>
-      <name>Fosstrak repository</name>
-      <url>sftp://maven-repository.fosstrak.org/local/home/fosstrakrep/public_html/snapshots</url>
-    </snapshotRepository>
-    <site>
-      <id>fosstrak-website</id>
-      <name>Fosstrak website</name>
-      <url>sftp://www.fosstrak.org/local/home/fosstrakweb/public_html/tdt</url>
-    </site>
-  </distributionManagement>
-  <issueManagement>
-    <system>Sourceforge</system>
-    <url>http://sourceforge.net/tracker/?group_id=194700</url>
-  </issueManagement>
-  <mailingLists>
-    <mailingList>
-      <name>Tag Data Translation user mailing list</name>
-      <subscribe>https://lists.sourceforge.net/lists/listinfo/fosstrak-tdt-user</subscribe>
-      <unsubscribe>https://lists.sourceforge.net/lists/listinfo/fosstrak-tdt-user</unsubscribe>
-      <post>fosstrak-tdt-user@lists.sourceforge.net</post>
-      <archive>http://sourceforge.net/mailarchive/forum.php?forum=fosstrak-tdt-user</archive>
-    </mailingList>
-  </mailingLists>
+    <scm>
+        <connection>https://fosstrak.googlecode.com/svn/tdt/trunk</connection>
+   		<developerConnection>scm:svn:https://fosstrak.googlecode.com/svn/tdt/trunk</developerConnection>
+        <url>https://fosstrak.googlecode.com/svn/tdt/trunk</url>
+  	</scm>
+  
 
 
   <!-- =========================================================== -->
