@@ -1,0 +1,40 @@
+              -------------------
+              Download
+              -------------------
+              -------------------
+              -------------------
+
+
+Download
+
+  The current version of Fosstrak TDT Engine is 0.9.0.
+
+
+* Latest Release 
+
+*------------+---------+---------------------------+------------+----------+
+ <<Package>> | <<JAR>> | <<JAR with Dependencies>> | <<Source>> | <<Notes>> 
+*------------+---------+---------------------------+------------+----------+
+ TDT 0.9.0 | {{{http://maven-repository.fosstrak.org/releases/org/fosstrak/tdt/tdt/0.9.0/tdt-0.9.0.jar}tdt-0.9.0.jar}} |  {{{http://maven-repository.fosstrak.org/releases/org/fosstrak/tdt/tdt/0.9.0/tdt-0.9.0-with-dependencies.jar}tdt-0.9.0-with-dependencies.jar}} | {{{http://maven-repository.fosstrak.org/releases/org/fosstrak/tdt/tdt/0.9.0/tdt-0.9.0-src.zip}tdt-0.9.0-src.zip}} |{{{changes-report.html}Changes}} 
+*------------+---------+---------------------------+------------+----------+
+
+
+* Previous Releases
+
+  All previous releases of Fosstrak TDT can be found in the {{{http://maven-repository.fosstrak.org/releases}distribution repository}}
+
+
+* System Requirements
+
+*---------------------+---------+
+ <<JDK>>              | 1.6.0_05 or higher
+*---------------------+---------+
+ <<Memory>>           | No minimum requirements.
+*---------------------+---------+
+ <<Operating System>> | No minimum requirements. Tested on Windows XP. 
+*---------------------+---------+
+
+
+* Installation and Usage Instructions
+
+  Please consult the {{{user-index.html} User Guide}} for usage instructions.
