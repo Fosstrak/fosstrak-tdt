@@ -7,7 +7,7 @@
 
   <groupId>org.fosstrak.tdt</groupId>
   <artifactId>tdt</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <modelVersion>4.0.0</modelVersion>
    <properties> 
@@ -84,9 +84,9 @@
   <!-- =========================================================== -->
 
     <scm>
-        <connection>https://svn.fosstrak.org/repos/tdt/tags/tdt-1.0.0</connection>
-   		<developerConnection>scm:svn:https://svn.fosstrak.org/repos/tdt/tags/tdt-1.0.0</developerConnection>
-        <url>https://svn.fosstrak.org/repos/tdt/tags/tdt-1.0.0</url>
+        <connection>https://fosstrak.googlecode.com/svn/tdt/trunk</connection>
+   		<developerConnection>scm:svn:https://fosstrak.googlecode.com/svn/tdt/trunk</developerConnection>
+        <url>https://fosstrak.googlecode.com/svn/tdt/trunk</url>
   	</scm>
   
 
