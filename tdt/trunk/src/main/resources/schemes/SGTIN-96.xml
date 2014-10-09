@@ -44,6 +44,12 @@
 				<field seq="3" decimalMinimum="0" decimalMaximum="9999999" characterSet="[01]*" bitPadDir="LEFT" bitLength="24" name="itemref"/>
 				<field seq="4" decimalMinimum="0" decimalMaximum="274877906943" characterSet="[01]*" bitPadDir="LEFT" bitLength="38" name="serial"/>
 			</option>
+			<option optionKey="5" pattern="00110000([01]{3})110([01]{17})([01]{27})([01]{38})" grammar="'00110000' filter '110' gs1companyprefix itemref serial">
+				<field seq="1" decimalMinimum="0" decimalMaximum="7" characterSet="[01]*" bitPadDir="LEFT" bitLength="3" name="filter"/>
+				<field seq="2" decimalMinimum="0" decimalMaximum="99999" characterSet="[01]*" bitPadDir="LEFT" bitLength="17" name="gs1companyprefix"/>
+				<field seq="3" decimalMinimum="0" decimalMaximum="99999999" characterSet="[01]*" bitPadDir="LEFT" bitLength="27" name="itemref"/>
+				<field seq="4" decimalMinimum="0" decimalMaximum="274877906943" characterSet="[01]*" bitPadDir="LEFT" bitLength="38" name="serial"/>
+			</option>
 		</level>
 		<level type="TAG_ENCODING" prefixMatch="urn:epc:tag:sgtin-96" requiredFormattingParameters="filter,taglength">
 			<option optionKey="12" pattern="urn:epc:tag:sgtin-96:([0-7]{1})\.([0-9]{12})\.([0-9]{1})\.([0-9]{1,12})" grammar="'urn:epc:tag:sgtin-96:' filter '.' gs1companyprefix '.' itemref '.' serial">
@@ -88,6 +94,12 @@
 				<field seq="3" decimalMinimum="0" decimalMaximum="9999999" characterSet="[0-9]*" length="7" padChar="0" padDir="LEFT" name="itemref"/>
 				<field seq="4" decimalMinimum="0" decimalMaximum="274877906943" characterSet="[0-9]*" name="serial"/>
 			</option>
+			<option optionKey="5" pattern="urn:epc:tag:sgtin-96:([0-7]{1})\.([0-9]{5})\.([0-9]{8})\.([0-9]{1,12})" grammar="'urn:epc:tag:sgtin-96:' filter '.' gs1companyprefix '.' itemref '.' serial">
+				<field seq="1" decimalMinimum="0" decimalMaximum="7" characterSet="[0-7]*" length="1" padChar="0" padDir="LEFT" name="filter"/>
+				<field seq="2" decimalMinimum="0" decimalMaximum="99999" characterSet="[0-9]*" length="5" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="3" decimalMinimum="0" decimalMaximum="99999999" characterSet="[0-9]*" length="8" padChar="0" padDir="LEFT" name="itemref"/>
+				<field seq="4" decimalMinimum="0" decimalMaximum="274877906943" characterSet="[0-9]*" name="serial"/>
+			</option>
 		</level>
 		<level type="PURE_IDENTITY" prefixMatch="urn:epc:id:sgtin">
 			<option optionKey="12" pattern="urn:epc:id:sgtin:([0-9]{12})\.([0-9]{1})\.([0-9]{1,12})" grammar="'urn:epc:id:sgtin:' gs1companyprefix '.' itemref '.' serial">
@@ -125,6 +137,11 @@
 				<field seq="2" decimalMinimum="0" decimalMaximum="9999999" characterSet="[0-9]*" length="7" padChar="0" padDir="LEFT" name="itemref"/>
 				<field seq="3" decimalMinimum="0" decimalMaximum="274877906943" characterSet="[0-9]*" name="serial"/>
 			</option>
+			<option optionKey="5" pattern="urn:epc:id:sgtin:([0-9]{5})\.([0-9]{8})\.([0-9]{1,12})" grammar="'urn:epc:id:sgtin:' gs1companyprefix '.' itemref '.' serial">
+				<field seq="1" decimalMinimum="0" decimalMaximum="99999" characterSet="[0-9]*" length="5" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+				<field seq="2" decimalMinimum="0" decimalMaximum="99999999" characterSet="[0-9]*" length="8" padChar="0" padDir="LEFT" name="itemref"/>
+				<field seq="3" decimalMinimum="0" decimalMaximum="274877906943" characterSet="[0-9]*" name="serial"/>
+			</option>
 		</level>
 		<level type="LEGACY" prefixMatch="gtin=" requiredParsingParameters="gs1companyprefixlength">
 			<option optionKey="12" pattern="gtin=([0-9]{14});serial=([0-9]{1,12})" grammar="'gtin=' indicatordigit gs1companyprefix itemrefremainder checkdigit ';serial=' serial">
@@ -152,6 +169,10 @@
 				<field seq="2" decimalMinimum="0" decimalMaximum="274877906943" characterSet="[0-9]*" name="serial"/>
 			</option>
 			<option optionKey="6" pattern="gtin=([0-9]{14});serial=([0-9]{1,12})" grammar="'gtin=' indicatordigit gs1companyprefix itemrefremainder checkdigit ';serial=' serial">
+				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999999" characterSet="[0-9]*" length="14" padChar="0" padDir="LEFT" name="gtin"/>
+				<field seq="2" decimalMinimum="0" decimalMaximum="274877906943" characterSet="[0-9]*" name="serial"/>
+			</option>
+			<option optionKey="5" pattern="gtin=([0-9]{14});serial=([0-9]{1,12})" grammar="'gtin=' indicatordigit gs1companyprefix itemrefremainder checkdigit ';serial=' serial">
 				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999999" characterSet="[0-9]*" length="14" padChar="0" padDir="LEFT" name="gtin"/>
 				<field seq="2" decimalMinimum="0" decimalMaximum="274877906943" characterSet="[0-9]*" name="serial"/>
 			</option>
@@ -194,6 +215,10 @@
 				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999999" characterSet="[0-9]*" length="14" padChar="0" padDir="LEFT" name="gtin"/>
 				<field seq="2" decimalMinimum="0" decimalMaximum="274877906943" characterSet="[0-9]*" name="serial"/>
 			</option>
+			<option optionKey="5" pattern="\(01\)([0-9]{14})\(21\)([0-9]{1,12})" grammar="'(01)' indicatordigit gs1companyprefix itemrefremainder checkdigit '(21)' serial">
+				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999999" characterSet="[0-9]*" length="14" padChar="0" padDir="LEFT" name="gtin"/>
+				<field seq="2" decimalMinimum="0" decimalMaximum="274877906943" characterSet="[0-9]*" name="serial"/>
+			</option>
 			<rule type="EXTRACT" inputFormat="STRING" seq="1" newFieldName="gtinprefixremainder" characterSet="[0-9]*" length="12" function="SUBSTR(gtin,1,12)"/>
 			<rule type="EXTRACT" inputFormat="STRING" seq="2" newFieldName="indicatordigit" characterSet="[0-9]*" length="1" function="SUBSTR(gtin,0,1)"/>
 			<rule type="EXTRACT" inputFormat="STRING" seq="3" newFieldName="itemrefremainder" characterSet="[0-9]*" function="SUBSTR(gtinprefixremainder,gs1companyprefixlength)"/>
@@ -226,6 +251,10 @@
 				<field seq="2" decimalMinimum="0" decimalMaximum="274877906943" characterSet="[0-9]*" name="serial"/>
 			</option>
 			<option optionKey="7" pattern="01([0-9]{14})21([0-9]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '21' serial">
+				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999999" characterSet="[0-9]*" length="14" padChar="0" padDir="LEFT" name="gtin"/>
+				<field seq="2" decimalMinimum="0" decimalMaximum="274877906943" characterSet="[0-9]*" name="serial"/>
+			</option>
+			<option optionKey="6" pattern="01([0-9]{14})21([0-9]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '21' serial">
 				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999999" characterSet="[0-9]*" length="14" padChar="0" padDir="LEFT" name="gtin"/>
 				<field seq="2" decimalMinimum="0" decimalMaximum="274877906943" characterSet="[0-9]*" name="serial"/>
 			</option>
@@ -271,6 +300,10 @@
 			<option optionKey="6" grammar="itemref '.' gs1companyprefix '.sgtin.id.onsepc.com'">
 				<field seq="1" decimalMinimum="0" decimalMaximum="9999999" characterSet="[0-9]*" length="7" padChar="0" padDir="LEFT" name="itemref"/>
 				<field seq="2" decimalMinimum="0" decimalMaximum="999999" characterSet="[0-9]*" length="6" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
+			</option>
+			<option optionKey="5" grammar="itemref '.' gs1companyprefix '.sgtin.id.onsepc.com'">
+				<field seq="1" decimalMinimum="0" decimalMaximum="99999999" characterSet="[0-9]*" length="8" padChar="0" padDir="LEFT" name="itemref"/>
+				<field seq="2" decimalMinimum="0" decimalMaximum="99999" characterSet="[0-9]*" length="5" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
 			</option>
 		</level>
 	</scheme>
