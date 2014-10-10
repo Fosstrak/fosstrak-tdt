@@ -230,39 +230,44 @@
 			<rule type="FORMAT" inputFormat="STRING" seq="4" newFieldName="checkdigit" characterSet="[0-9]*" length="1" function="GS1CHECKSUM(gtinprefix)"/>
 		</level>
 		<level type="ELEMENT_STRING" prefixMatch="01" requiredParsingParameters="gs1companyprefixlength">
-			<option optionKey="12" pattern="01([0-9]{14})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '21' lot">
+			<option optionKey="12" pattern="01([0-9]{14})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '10' lot">
 				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999999" characterSet="[0-9]*" length="14" padChar="0" padDir="LEFT" name="gtin"/>
 				<field seq="2" characterSet="[0-9A-Z]*" name="lot"/>
 			</option>
-			<option optionKey="11" pattern="01([0-9]{14})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '21' lot">
+			<option optionKey="11" pattern="01([0-9]{14})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '10' lot">
 				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999999" characterSet="[0-9]*" length="14" padChar="0" padDir="LEFT" name="gtin"/>
 				<field seq="2" characterSet="[0-9A-Z]*" name="lot"/>
 			</option>
-			<option optionKey="10" pattern="01([0-9]{14})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '21' lot">
+			<option optionKey="10" pattern="01([0-9]{14})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '10' lot">
 				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999999" characterSet="[0-9]*" length="14" padChar="0" padDir="LEFT" name="gtin"/>
 				<field seq="2" characterSet="[0-9A-Z]*" name="lot"/>
 			</option>
-			<option optionKey="9" pattern="01([0-9]{14})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '21' lot">
+			<option optionKey="9" pattern="01([0-9]{14})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '10' lot">
 				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999999" characterSet="[0-9]*" length="14" padChar="0" padDir="LEFT" name="gtin"/>
 				<field seq="2" characterSet="[0-9A-Z]*" name="lot"/>
 			</option>
-			<option optionKey="8" pattern="01([0-9]{14})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '21' lot">
+			<option optionKey="8" pattern="01([0-9]{14})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '10' lot">
 				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999999" characterSet="[0-9]*" length="14" padChar="0" padDir="LEFT" name="gtin"/>
 				<field seq="2" characterSet="[0-9A-Z]*" name="lot"/>
 			</option>
-			<option optionKey="7" pattern="01([0-9]{14})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '21' lot">
+			<option optionKey="7" pattern="01([0-9]{14})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '10' lot">
 				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999999" characterSet="[0-9]*" length="14" padChar="0" padDir="LEFT" name="gtin"/>
 				<field seq="2" characterSet="[0-9A-Z]*" name="lot"/>
 			</option>
-			<option optionKey="6" pattern="01([0-9]{14})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '21' lot">
+			<option optionKey="6" pattern="01([0-9]{14})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '10' lot">
 				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999999" characterSet="[0-9]*" length="14" padChar="0" padDir="LEFT" name="gtin"/>
 				<field seq="2" characterSet="[0-9A-Z]*" name="lot"/>
 			</option>
-			<option optionKey="5" pattern="01([0-9]{14})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '21' lot">
+			<option optionKey="5" pattern="01([0-9]{14})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '10' lot">
 				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999999" characterSet="[0-9]*" length="14" padChar="0" padDir="LEFT" name="gtin"/>
 				<field seq="2" characterSet="[0-9A-Z]*" name="lot"/>
 			</option>
-			<rule type="EXTRACT" inputFormat="STRING" seq="1" newFieldName="gtinprefixremainder" characterSet="[0-9]*" length="12" function="SUBSTR(gtin,1,12)"/>
+			<option optionKey="5" pattern="01([0-9]{14})17([0-9]{6})10([0-9A-Z]{1,12})" grammar="'01' indicatordigit gs1companyprefix itemrefremainder checkdigit '17' bestbefore '10' lot">
+				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999999" characterSet="[0-9]*" length="14" padChar="0" padDir="LEFT" name="gtin"/>
+				<field seq="2" characterSet="[0-9]*" name="bestbefore"/>
+				<field seq="3" characterSet="[0-9A-Z]*" name="lot"/>
+			</option>
+						<rule type="EXTRACT" inputFormat="STRING" seq="1" newFieldName="gtinprefixremainder" characterSet="[0-9]*" length="12" function="SUBSTR(gtin,1,12)"/>
 			<rule type="EXTRACT" inputFormat="STRING" seq="2" newFieldName="indicatordigit" characterSet="[0-9]*" length="1" function="SUBSTR(gtin,0,1)"/>
 			<rule type="EXTRACT" inputFormat="STRING" seq="3" newFieldName="itemrefremainder" characterSet="[0-9]*" function="SUBSTR(gtinprefixremainder,gs1companyprefixlength)"/>
 			<rule type="EXTRACT" inputFormat="STRING" seq="4" newFieldName="itemref" characterSet="[0-9]*" function="CONCAT(indicatordigit,itemrefremainder)"/>
